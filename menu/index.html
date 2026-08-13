@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="es" id="htmlRoot">
+<html lang="ro" id="htmlRoot">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<title>Á Libretto &mdash; Menú digital</title>
-<meta name="description" content="Menú digital Á Libretto. Cócteles y platos deliciosos.">
+<title>Á Libretto &mdash; Meniu digital</title>
+<meta name="description" content="Meniu digital Á Libretto. Preparate delicioase și băuturi selecte.">
 
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#16844e">
@@ -12,7 +12,7 @@
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('sw.js').catch(err => console.log('Error SW: ', err));
+      navigator.serviceWorker.register('sw.js').catch(err => console.log('Eroare SW: ', err));
     });
   }
 </script>
@@ -237,19 +237,18 @@
 <body>
 
 <div id="busyBanner" class="busy-banner">
-  🔥 Cocina con alta demanda. Tiempos de espera ligeramente mayores.
+  🔥 Bucătăria are cerere mare. Timpi de așteptare ușor mai mari decât de obicei.
 </div>
 
 <header class="hero">
   <div class="top-actions">
     <div style="position: relative;">
         <button class="lang-toggle-btn" id="langToggleBtn">
-            <span id="currentLangIcon">🇪🇸</span> <span id="currentLangText">ES</span> ▼
+            <span id="currentLangIcon">🇷🇴</span> <span id="currentLangText">RO</span> ▼
         </button>
         <div class="lang-menu-dropdown" id="langDropdown">
-            <button class="lang-option" data-lang="es"><span>🇪🇸</span> Español</button>
+            <button class="lang-option" data-lang="ro"><span>🇷🇴</span> Română</button>
             <button class="lang-option" data-lang="en"><span>🇬🇧</span> English</button>
-            <button class="lang-option" data-lang="fr"><span>🇫🇷</span> Français</button>
         </div>
     </div>
     
@@ -261,17 +260,17 @@
   
   <div class="wrap hero-inner">
     <div class="hero-text">
-      <p class="eyebrow" id="txtEyebrow">Menú digital</p>
+      <p class="eyebrow" id="txtEyebrow">Meniu digital</p>
       <h1 id="txtTitle">Á Libretto</h1>
-      <p class="tag" id="txtTagline">Cócteles internacionales, bebidas selectas y platos deliciosos.</p>
+      <p class="tag" id="txtTagline">Preparate delicioase, băuturi selecte și cocktailuri internaționale.</p>
     </div>
   </div>
 </header>
 
 <div class="tracker-widget" id="liveTracker">
   <div class="t-head">
-      <span id="trackerTitle">Tu pedido</span>
-      <span class="t-status" id="trackerStatusText">Enviando...</span>
+      <span id="trackerTitle">Comanda ta</span>
+      <span class="t-status" id="trackerStatusText">Se trimite...</span>
   </div>
   <div class="t-bar-bg">
       <div class="t-bar-fill" id="trackerProgress"></div>
@@ -282,7 +281,7 @@
   <div class="controls">
     <div class="search-box">
       <svg class="search-icon" viewBox="0 0 24 24"><path d="M11 4a7 7 0 1 0 0 14 7 7 0 0 0 0-14zm10 17-5.6-5.6"/></svg>
-      <input type="search" id="searchInput" aria-label="Buscar" placeholder="Buscar...">
+      <input type="search" id="searchInput" aria-label="Căutare" placeholder="Caută...">
     </div>
     <div class="tag-filters" id="tagFilters"></div>
   </div>
@@ -298,37 +297,28 @@
   </div>
   <div class="action-buttons">
     <button class="btn-action btn-split-bill" id="btnOpenSplitBill">➗</button>
-    <button class="btn-action btn-order-bar" id="btnOpenOrderModal">Enviar Pedido</button>
+    <button class="btn-action btn-order-bar" id="btnOpenOrderModal">Trimite Comanda</button>
   </div>
 </div>
 
 <button class="global-fav-btn" id="smartActionBtn"></button>
 
 <div class="cookie-banner" id="cookieBanner">
-  <p id="cookieBannerText">Utilizamos almacenamiento local del navegador, técnicamente necesario, para recordar tu idioma, tu mesa y los productos de tu pedido. No usamos cookies de publicidad ni de seguimiento. Al continuar navegando aceptas su uso.</p>
+  <p id="cookieBannerText">Folosim stocarea locală a browserului, necesară din punct de vedere tehnic, pentru a reține limba, masa și produsele din comanda ta. Nu folosim cookie-uri de publicitate sau de urmărire. Continuând navigarea, accepți utilizarea lor.</p>
   <div class="cookie-banner-actions">
-    <button class="btn-cookie-info" id="btnCookieInfo">Más info</button>
-    <button class="btn-cookie-accept" id="btnCookieAccept">Aceptar y continuar</button>
+    <button class="btn-cookie-info" id="btnCookieInfo">Mai multe info</button>
+    <button class="btn-cookie-accept" id="btnCookieAccept">Accept și continui</button>
   </div>
 </div>
 
 <div class="modal-overlay" id="onboardingOverlay">
   <div class="modal">
     <p class="eyebrow centered">Á Libretto</p>
-    <div id="obLangStep">
-      <h2 id="obLangTitle">¡Bienvenido!</h2>
-      <p id="obLangSubtitle">Elige el idioma del menú</p>
-      <div class="lang-grid">
-        <button class="lang-pick-btn" data-lang="es"><span class="flag">🇪🇸</span> Español</button>
-        <button class="lang-pick-btn" data-lang="en"><span class="flag">🇬🇧</span> English</button>
-        <button class="lang-pick-btn" data-lang="fr"><span class="flag">🇫🇷</span> Français</button>
-      </div>
-    </div>
-    <div id="obModeStep" style="display:none;">
-      <h2 id="obModeTitle">¿Cómo deseas pedir?</h2>
-      <p id="obModeSubtitle">Elige una opción para continuar.</p>
-      <button class="btn-waiter-option" id="btnDineIn">🍽️ Estoy en una mesa</button>
-      <button class="btn-waiter-option" id="btnTakeaway">🥡 Para llevar (Takeaway)</button>
+    <div id="obModeStep">
+      <h2 id="obModeTitle">Cum dorești să comanzi?</h2>
+      <p id="obModeSubtitle">Alege o opțiune pentru a continua.</p>
+      <button class="btn-waiter-option" id="btnDineIn">🍽️ Sunt la o masă</button>
+      <button class="btn-waiter-option" id="btnTakeaway">🥡 La pachet (Takeaway)</button>
     </div>
   </div>
 </div>
@@ -336,38 +326,38 @@
 <div class="modal-overlay" id="orderOverlay">
   <div class="modal">
     <button class="modal-close" id="closeOrderModal">&times;</button>
-    <h2 id="orderModalTitle">Número de Mesa</h2>
-    <p id="orderModalDesc">Introduce el número de tu mesa.</p>
+    <h2 id="orderModalTitle">Numărul Mesei</h2>
+    <p id="orderModalDesc">Introdu numărul mesei tale.</p>
     
-    <input type="text" id="tableNumberInput" class="input-table" placeholder="Ej: 4">
+    <input type="text" id="tableNumberInput" class="input-table" placeholder="Ex: 4">
     
-    <input type="text" id="takeawayNameInput" class="input-table" placeholder="Tu Nombre" style="display:none;">
-    <input type="tel" id="takeawayPhoneInput" class="input-table" placeholder="Teléfono" style="display:none;">
-    <span class="gdpr-note" id="txtGdprNote" style="display:none;">Tus datos se borrarán automáticamente en 48h (GDPR).</span>
+    <input type="text" id="takeawayNameInput" class="input-table" placeholder="Numele tău" style="display:none;">
+    <input type="tel" id="takeawayPhoneInput" class="input-table" placeholder="Telefon" style="display:none;">
+    <span class="gdpr-note" id="txtGdprNote" style="display:none;">Datele tale vor fi șterse automat în 48h (GDPR).</span>
 
-    <textarea id="orderNoteInput" class="input-note" placeholder="Nota para tu pedido (opcional)." rows="2"></textarea>
-    <button class="btn-submit" id="sendOrderBtn">Enviar Pedido</button>
+    <textarea id="orderNoteInput" class="input-note" placeholder="Notă pentru comanda ta (opțional)." rows="2"></textarea>
+    <button class="btn-submit" id="sendOrderBtn">Trimite Comanda</button>
   </div>
 </div>
 
 <div class="modal-overlay" id="splitBillOverlay">
   <div class="modal">
     <button class="modal-close" id="closeSplitBill">&times;</button>
-    <h2 id="splitTitle">Dividir la cuenta</h2>
-    <p id="splitDesc" style="color:var(--text-muted); font-size: 14px;">Calcula rápido cuánto debe pagar cada persona.</p>
+    <h2 id="splitTitle">Împarte nota</h2>
+    <p id="splitDesc" style="color:var(--text-muted); font-size: 14px;">Calculează rapid cât trebuie să plătească fiecare persoană.</p>
 
     <div class="split-mode-toggle">
-        <button id="splitModeEqualBtn" class="active" data-mode="equal">➗ <span id="splitModeEqualTxt">Partes iguales</span></button>
-        <button id="splitModeProductBtn" data-mode="product">🍽️ <span id="splitModeProductTxt">Por producto</span></button>
+        <button id="splitModeEqualBtn" class="active" data-mode="equal">➗ <span id="splitModeEqualTxt">Părți egale</span></button>
+        <button id="splitModeProductBtn" data-mode="product">🍽️ <span id="splitModeProductTxt">Pe produs</span></button>
     </div>
     
     <div id="splitEqualView">
       <div class="split-row">
-          <span id="splitL1">Total del carrito:</span>
+          <span id="splitL1">Total coș:</span>
           <span id="sbTotalCos" style="color:white; font-weight:700;">0.00 RON</span>
       </div>
       <div class="split-row">
-          <span id="splitL2">Número de personas:</span>
+          <span id="splitL2">Numărul de persoane:</span>
           <div class="split-ctrl">
               <button class="split-btn" onclick="adjSplitPersons(-1)">-</button>
               <span id="sbPersons" style="color:white; width: 20px; text-align:center;">2</span>
@@ -375,7 +365,7 @@
           </div>
       </div>
       <div class="split-row">
-          <span id="splitL3">Propina (%):</span>
+          <span id="splitL3">Bacșiș (%):</span>
           <div class="split-ctrl">
               <button class="split-btn" onclick="adjSplitTip(-5)">-</button>
               <span id="sbTip" style="color:white; width: 40px; text-align:center;">10%</span>
@@ -388,7 +378,7 @@
 
     <div id="splitProductView" style="display:none;">
       <div class="split-row">
-          <span id="splitPL2">Número de personas:</span>
+          <span id="splitPL2">Numărul de persoane:</span>
           <div class="split-ctrl">
               <button class="split-btn" onclick="adjSplitProductPersons(-1)">-</button>
               <span id="spPersons" style="color:white; width: 20px; text-align:center;">2</span>
@@ -396,14 +386,14 @@
           </div>
       </div>
       <div class="split-row">
-          <span id="splitPL3">Propina (%):</span>
+          <span id="splitPL3">Bacșiș (%):</span>
           <div class="split-ctrl">
               <button class="split-btn" onclick="adjSplitProductTip(-5)">-</button>
               <span id="spTip" style="color:white; width: 40px; text-align:center;">10%</span>
               <button class="split-btn" onclick="adjSplitProductTip(5)">+</button>
           </div>
       </div>
-      <p id="splitProductHint" style="font-size:12.5px; color:var(--ink-soft); margin: 4px 0 10px; text-align:left;">Asigna cada producto a una persona.</p>
+      <p id="splitProductHint" style="font-size:12.5px; color:var(--ink-soft); margin: 4px 0 10px; text-align:left;">Atribuie fiecare produs unei persoane.</p>
       <div class="split-product-list" id="splitProductList"></div>
       <div class="split-per-person-results" id="splitPerPersonResults"></div>
     </div>
@@ -413,36 +403,36 @@
 <div class="modal-overlay" id="callWaiterOverlay">
   <div class="modal">
     <button class="modal-close" id="closeCallWaiter">&times;</button>
-    <h2 id="callWaiterTitle">¿Necesitas algo?</h2>
-    <p id="callWaiterDesc">Selecciona el motivo por el que llamas al camarero.</p>
-    <button class="btn-waiter-option" id="btnCallCash" onclick="sendSpecialAlert('cash')">💵 Quiero pagar (Efectivo)</button>
-    <button class="btn-waiter-option" id="btnCallCard" onclick="sendSpecialAlert('card')">💳 Quiero pagar (Tarjeta)</button>
-    <button class="btn-waiter-option" id="btnCallHelp" onclick="sendSpecialAlert('help')">🙋‍♂️ Necesito ayuda</button>
+    <h2 id="callWaiterTitle">Ai nevoie de ceva?</h2>
+    <p id="callWaiterDesc">Selectează motivul pentru care chemi ospătarul.</p>
+    <button class="btn-waiter-option" id="btnCallCash" onclick="sendSpecialAlert('cash')">💵 Vreau să plătesc (Cash)</button>
+    <button class="btn-waiter-option" id="btnCallCard" onclick="sendSpecialAlert('card')">💳 Vreau să plătesc (Card)</button>
+    <button class="btn-waiter-option" id="btnCallHelp" onclick="sendSpecialAlert('help')">🙋‍♂️ Am nevoie de ajutor</button>
   </div>
 </div>
 
 <div class="modal-overlay" id="feedbackOverlay">
   <div class="modal" style="text-align:center;">
     <button class="modal-close" onclick="document.getElementById('feedbackOverlay').classList.remove('open')">&times;</button>
-    <h2 id="fbTitle">¿Qué tal la comida?</h2>
+    <h2 id="fbTitle">Cum a fost mâncarea?</h2>
     <div id="starContainer" style="font-size: 38px; display:flex; justify-content:center; gap:10px; margin:20px 0; cursor:pointer; color: var(--ink-soft); user-select:none;">
        <span data-val="1">☆</span><span data-val="2">☆</span><span data-val="3">☆</span><span data-val="4">☆</span><span data-val="5">☆</span>
     </div>
     <div id="fbBad" style="display:none; transition: opacity 0.3s;">
-       <textarea id="fbMessage" class="input-note" placeholder="¿Qué podemos mejorar?" rows="3"></textarea>
-       <button class="btn-submit" id="btnSubmitFb">Enviar Feedback</button>
+       <textarea id="fbMessage" class="input-note" placeholder="Ce putem îmbunătăți?" rows="3"></textarea>
+       <button class="btn-submit" id="btnSubmitFb">Trimite Feedback</button>
     </div>
     <div id="fbGood" style="display:none; transition: opacity 0.3s;">
-       <p id="fbGoogleText" style="margin-bottom:16px;">¡Genial! Nos ayudaría mucho una reseña en Google.</p>
-       <a href="https://search.google.com/local/writereview?placeid=ChIJc_yhyrB9Ng0R2dkWSDt5jIs" target="_blank" class="btn-submit" id="fbGoogleBtn" style="display:block; text-decoration:none; background:#4285F4; margin-bottom: 0;">Dejar reseña en Google</a>
+       <p id="fbGoogleText" style="margin-bottom:16px;">Perfect! Ne-ar ajuta mult o recenzie pe Google.</p>
+       <a href="https://search.google.com/local/writereview?placeid=ChIJc_yhyrB9Ng0R2dkWSDt5jIs" target="_blank" class="btn-submit" id="fbGoogleBtn" style="display:block; text-decoration:none; background:#4285F4; margin-bottom: 0;">Lasă o recenzie pe Google</a>
     </div>
   </div>
 </div>
 
 <div class="modal-overlay" id="customAlertOverlay">
   <div class="modal" style="max-width:340px;">
-    <h3 id="customAlertTitle" style="margin-bottom:12px; font-size: 1.4rem;">Notificación</h3>
-    <p id="customAlertText" style="margin-bottom:24px; font-size: 15px;">Mensaje...</p>
+    <h3 id="customAlertTitle" style="margin-bottom:12px; font-size: 1.4rem;">Notificare</h3>
+    <p id="customAlertText" style="margin-bottom:24px; font-size: 15px;">Mesaj...</p>
     <button class="btn-submit" id="customAlertOkBtn" onclick="closeCustomAlert()">OK</button>
   </div>
 </div>
@@ -450,12 +440,12 @@
 <div class="modal-overlay" id="privacyOverlay">
   <div class="modal" style="text-align: left;">
     <button class="modal-close" onclick="document.getElementById('privacyOverlay').classList.remove('open')">&times;</button>
-    <h2 id="privacyTitle">Política de Privacidad</h2>
-    <p id="privacyText" style="font-size:15px; color: var(--ink-soft); line-height: 1.5; margin-top: 10px;">Recopilamos su nombre y teléfono únicamente para gestionar su pedido de Takeaway. Los datos se eliminan automáticamente de nuestros servidores en 48 horas conforme al RGPD.</p>
+    <h2 id="privacyTitle">Politica de Confidențialitate</h2>
+    <p id="privacyText" style="font-size:15px; color: var(--ink-soft); line-height: 1.5; margin-top: 10px;">Colectăm numele și telefonul dumneavoastră exclusiv pentru a gestiona comanda de tip Takeaway. Datele sunt șterse automat de pe serverele noastre în 48 de ore, conform GDPR.</p>
     <p id="privacyTextData" style="font-size:13px; color: var(--ink-soft); line-height: 1.55; margin-top: -8px; text-align:left;"></p>
     <p id="privacyTextCookies" style="font-size:13px; color: var(--ink-soft); line-height: 1.55; margin-top: -8px; text-align:left;"></p>
     <p id="privacyTextAllergens" style="font-size:13px; color: var(--ink-soft); line-height: 1.55; margin-top: -8px; text-align:left;"></p>
-    <button class="btn-submit" onclick="document.getElementById('privacyOverlay').classList.remove('open')" style="margin-top: 20px;">Cerrar</button>
+    <button class="btn-submit" onclick="document.getElementById('privacyOverlay').classList.remove('open')" style="margin-top: 20px;">Închide</button>
   </div>
 </div>
 
@@ -463,7 +453,7 @@
   <div class="wrap footer-inner">
     <div class="brand">Á Libretto</div>
     <div class="footer-links">
-        <button id="btnPrivacyPolicy">Política de Privacidad (GDPR)</button>
+        <button id="btnPrivacyPolicy">Politica de Confidențialitate (GDPR)</button>
     </div>
     <span id="txtFooterCopy">&copy; 2026 Á Libretto</span>
   </div>
@@ -471,8 +461,8 @@
 
 <script>
 (function(){
-  const SUPABASE_URL = 'https://wnwllyyhtkufcejzjeay.supabase.co';
-  const SUPABASE_ANON_KEY = 'sb_publishable_yCycz19M9_HmXlRN1xjn1Q_5YhFtZPh';
+  const SUPABASE_URL = 'https://dqgcodcxdfgwjaqdtvbi.supabase.co';
+  const SUPABASE_ANON_KEY = 'sb_publishable_N6gG_s8Pmpc-w8m04Es66Q_dcqhEXRA';
   const _supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
   // Helper de protecție XSS - previne executarea de cod malițios trimis din exterior
@@ -490,7 +480,7 @@
   let outOfStockIds = new Set();
   let activeFilter = 'all';
   let favoritesQty = loadFavorites();
-  let currentLang = localStorage.getItem('aLibretto:lang'); 
+  let currentLang = localStorage.getItem('aLibretto:lang');
   let cartTotalValue = 0;
   let currentRating = 0;
   let pendingReviewPrompt = false;
@@ -503,13 +493,13 @@
   // (primul tag din array-ul "tags" al fiecărui produs este considerat categoria principală).
   // Ordinea de mai jos controlează ordinea în care apar secțiunile pe pagină.
   const CATEGORY_ORDER = [
-    'Antipasti/ Entrantes',
-    'Ensaladas',
-    'Pastas',
-    'Carnes',
-    'Pizzas',
-    'Postres',
-    'Bebidas'
+    'Antipasti',
+    'Salate',
+    'Paste',
+    'Carne',
+    'Pizza',
+    'Deserturi',
+    'Băuturi'
   ];
 
   function showCustomAlert(title, text) {
@@ -555,20 +545,28 @@
   }
 
   // Returnează categoria principală a unui produs, căutând în tags[] primul tag
-  // care se regăsește în CATEGORY_ORDER. Dacă niciun tag nu se potrivește -> 'otros'.
+  // care se regăsește în CATEGORY_ORDER. Dacă niciun tag nu se potrivește -> 'altele'.
   function getMainCategory(item){
     const tags = item.tags || [];
     for(const cat of CATEGORY_ORDER){
       if(tags.includes(cat)) return cat;
     }
-    return 'otros';
+    return 'altele';
   }
 
-  // Ia numele/descrierea produsului în limba curentă din menu.json -> translations.
-  // Dacă produsul nu are traducere pentru limba activă, cade automat pe câmpurile
-  // implicite (name/description) ca să nu rămână niciodată gol.
+  // Ia numele/descrierea produsului în limba curentă. Limba de bază a menu.json este
+  // ROMÂNA (name/description/ingredients/allergens), iar traducerea în engleză vine din
+  // translations.en. Dacă lipsește vreun câmp EN, cade automat pe varianta română.
   function getLocalized(item){
-    const tr = item.translations && item.translations[currentLang];
+    if(currentLang === 'ro'){
+      return {
+        name: item.name,
+        description: item.description || '',
+        ingredients: item.ingredients || [],
+        allergens: item.allergens || []
+      };
+    }
+    const tr = item.translations && item.translations.en;
     return {
       name: (tr && tr.name) || item.name,
       description: (tr && tr.description) || item.description || '',
@@ -578,40 +576,32 @@
   }
 
   // --- FALLBACK IMAGINI (fără librării, fără API key) ---
-  // Poze generice de rezervă per categorie, folosite doar dacă imaginea locală
-  // ȘI căutarea pe Wikipedia eșuează amândouă. Cel puțin se potrivesc pe tip de mâncare.
   const CATEGORY_FALLBACK_IMG = {
-    'Antipasti/ Entrantes': 'https://images.unsplash.com/photo-1541014741259-de529411b96a?w=700&q=80&auto=format&fit=crop',
-    'Ensaladas': 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=700&q=80&auto=format&fit=crop',
-    'Pastas': 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=700&q=80&auto=format&fit=crop',
-    'Carnes': 'https://images.unsplash.com/photo-1544025162-d76694265947?w=700&q=80&auto=format&fit=crop',
-    'Pizzas': 'https://images.unsplash.com/photo-1548365328-9f547fb0953b?w=700&q=80&auto=format&fit=crop',
-    'Postres': 'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=700&q=80&auto=format&fit=crop',
-    'Bebidas': 'https://images.unsplash.com/photo-1544145945-f90425340c7e?w=700&q=80&auto=format&fit=crop',
-    'otros': 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=700&q=80&auto=format&fit=crop'
+    'Antipasti': 'https://images.unsplash.com/photo-1541014741259-de529411b96a?w=700&q=80&auto=format&fit=crop',
+    'Salate': 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=700&q=80&auto=format&fit=crop',
+    'Paste': 'https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=700&q=80&auto=format&fit=crop',
+    'Carne': 'https://images.unsplash.com/photo-1544025162-d76694265947?w=700&q=80&auto=format&fit=crop',
+    'Pizza': 'https://images.unsplash.com/photo-1548365328-9f547fb0953b?w=700&q=80&auto=format&fit=crop',
+    'Deserturi': 'https://images.unsplash.com/photo-1551024506-0bccd828d307?w=700&q=80&auto=format&fit=crop',
+    'Băuturi': 'https://images.unsplash.com/photo-1544145945-f90425340c7e?w=700&q=80&auto=format&fit=crop',
+    'altele': 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=700&q=80&auto=format&fit=crop'
   };
 
-  // Construiește tag-urile de căutare pentru librăria foto, din numele EN al produsului
-  // (curățat de diacritice/simboluri), plus cuvântul "food" ca să rămână relevant culinar.
+  // Construiește tag-urile de căutare pentru librăria foto, din numele EN al produsului.
   function buildPhotoTags(item){
     const enName = (item.translations && item.translations.en && item.translations.en.name) || item.name;
     const cleaned = enName
-      .normalize('NFD').replace(/[\u0300-\u036f]/g, '') // scoate accentele
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
       .toLowerCase()
       .replace(/[^a-z0-9\s]/g, '')
       .trim()
       .split(/\s+/)
       .filter(Boolean)
-      .slice(0, 3) // max 3 cuvinte cheie, ca să rămână căutarea precisă
+      .slice(0, 3)
       .join(',');
     return cleaned ? `${cleaned},food` : 'food';
   }
 
-  // Handler apelat din onerror al <img>. Treapta 1: o librărie foto dedicată mâncării
-  // (LoremFlickr — gratuită, fără cheie API, CORS ok) căutată după numele produsului.
-  // Parametrul "lock" fixează aceeași poză pentru același produs la fiecare încărcare,
-  // ca imaginea să nu "sară" la fiecare refresh. Treapta 2 (dacă și aia eșuează):
-  // poza generică de categorie, care nu mai poate da eroare.
   window.handleImgError = function(imgEl, id){
     const item = allItems.find(i => i.imageNumber === id);
     if(!item){ imgEl.onerror = null; return; }
@@ -619,59 +609,57 @@
     if(imgEl.dataset.stage !== 'lib-tried'){
       imgEl.dataset.stage = 'lib-tried';
       const tags = buildPhotoTags(item);
-      imgEl.onerror = function(){ this.onerror = null; this.src = CATEGORY_FALLBACK_IMG[getMainCategory(item)] || CATEGORY_FALLBACK_IMG.otros; };
+      imgEl.onerror = function(){ this.onerror = null; this.src = CATEGORY_FALLBACK_IMG[getMainCategory(item)] || CATEGORY_FALLBACK_IMG.altele; };
       imgEl.src = `https://loremflickr.com/700/560/${tags}/all?lock=${item.imageNumber}`;
       return;
     }
     imgEl.onerror = null;
-    imgEl.src = CATEGORY_FALLBACK_IMG[getMainCategory(item)] || CATEGORY_FALLBACK_IMG.otros;
+    imgEl.src = CATEGORY_FALLBACK_IMG[getMainCategory(item)] || CATEGORY_FALLBACK_IMG.altele;
   };
 
   const I18N = {
-    es: { 
-      flag:'🇪🇸', code:'ES', eyebrow:'Menú digital', title:'Á Libretto', tagline:'Cócteles internacionales, bebidas selectas y platos deliciosos.', 
-      allChip:'Todos', searchPlaceholder:'Buscar...', emptyState:'No se encontraron productos.', 
-      totalLabel:'Total:', btnOrderBar:'Enviar Pedido', trackerTitle:'Tu pedido',
-      obLangTitle:'¡Bienvenido!', obLangSubtitle:'Elige el idioma del menú', 
-      obModeTitle:'¿Cómo deseas pedir?', obModeSubtitle:'Elige una opción para continuar.', 
-      dineIn:'🍽️ Estoy en una mesa', takeaway:'🥡 Para llevar', takeawayLabel:'Para llevar', 
-      orderModalTitle:'Número de Mesa', orderModalDesc:'Introduce el número de tu mesa para enviar el pedido.', 
-      takeawayTitle:'Pedido para llevar', takeawayDesc:'Por favor, introduce tu nombre y teléfono para contactarte cuando el pedido esté listo.',
-      tablePlaceholder:'Ej: 4', orderNotePlaceholder:'Nota para tu pedido (opcional).',
-      tkNameHolder: 'Tu Nombre (Ej: Juan)', tkPhoneHolder: 'Teléfono (Ej: 600123456)',
-      takeawayReq: 'Por favor, introduce tu nombre y teléfono.',
-      sendOrderBtnText:'Enviar Pedido', sendingText:'Enviando...', 
-      callWaiterTitle:'¿Necesitas algo?', callWaiterDesc:'Selecciona el motivo por el que llamas al camarero.', 
-      callCash:'💵 Quiero pagar (Efectivo)', callCard:'💳 Quiero pagar (Tarjeta)', callHelp:'🙋‍♂️ Necesito ayuda', 
-      alertSent:(m)=>`¡Se ha llamado al camarero a la mesa ${m}!`, 
+    ro: {
+      flag:'🇷🇴', code:'RO', eyebrow:'Meniu digital', title:'Á Libretto', tagline:'Preparate delicioase, băuturi selecte și cocktailuri internaționale.',
+      allChip:'Toate', searchPlaceholder:'Caută...', emptyState:'Nu am găsit produse.',
+      totalLabel:'Total:', btnOrderBar:'Trimite Comanda', trackerTitle:'Comanda ta',
+      obModeTitle:'Cum dorești să comanzi?', obModeSubtitle:'Alege o opțiune pentru a continua.',
+      dineIn:'🍽️ Sunt la o masă', takeaway:'🥡 La pachet', takeawayLabel:'La pachet',
+      orderModalTitle:'Numărul Mesei', orderModalDesc:'Introdu numărul mesei tale pentru a trimite comanda.',
+      takeawayTitle:'Comandă la pachet', takeawayDesc:'Te rugăm introdu numele și telefonul tău ca să te putem contacta când comanda e gata.',
+      tablePlaceholder:'Ex: 4', orderNotePlaceholder:'Notă pentru comanda ta (opțional).',
+      tkNameHolder: 'Numele tău (Ex: Ion)', tkPhoneHolder: 'Telefon (Ex: 0712345678)',
+      takeawayReq: 'Te rugăm introdu numele și telefonul tău.',
+      sendOrderBtnText:'Trimite Comanda', sendingText:'Se trimite...',
+      callWaiterTitle:'Ai nevoie de ceva?', callWaiterDesc:'Selectează motivul pentru care chemi ospătarul.',
+      callCash:'💵 Vreau să plătesc (Cash)', callCard:'💳 Vreau să plătesc (Card)', callHelp:'🙋‍♂️ Am nevoie de ajutor',
+      alertSent:(m)=>`Ospătarul a fost chemat la masa ${m}!`,
       catNames:{
-        'Antipasti/ Entrantes':'Antipasti / Entrantes',
-        'Ensaladas':'Ensaladas',
-        'Pastas':'Pastas',
-        'Carnes':'Carnes y Pescados',
-        'Pizzas':'Pizzas',
-        'Postres':'Postres',
-        'Bebidas':'Bebidas',
-        'otros':'Otros'
-      }, 
-      smartWaiter: '💳 Pagar / Ayuda 🙋‍♂️', smartCart: 'Mi Pedido', splitTitle: 'Dividir la cuenta', splitDesc: 'Calcula rápido cuánto debe pagar cada persona.', sl1: 'Total del carrito:', sl2: 'Número de personas:', sl3: 'Propina (%):',
-      badgeEpuizat: 'Agotado', ribbonEsp: 'Especialidad',
-      alertPayload: { cash: 'Cuenta (Efectivo)', card: 'Cuenta (Tarjeta)', help: 'Ayuda / Otro' },
-      privacyTitle: 'Política de Privacidad (GDPR)', privacyText: 'Recopilamos su nombre y teléfono únicamente para gestionar su pedido de Takeaway. Los datos se eliminan automáticamente de nuestros servidores en 48 horas conforme al RGPD.', privacyBtn: 'Política de Privacidad', gdprNote: 'Tus datos se borrarán automáticamente en 48h (GDPR).',
-      privacyAllergensText: 'Aviso sobre gramajes, valores nutricionales y alérgenos: los pesos (gramajes), los valores calóricos (kcal) y la relación de ingredientes y alérgenos que aparecen en este menú digital tienen carácter meramente orientativo e informativo. Dichos datos son introducidos, actualizados y validados exclusivamente por el establecimiento (el restaurante), siendo este el único responsable de su exactitud, veracidad y actualización, de conformidad con el Reglamento (UE) n.º 1169/2011 sobre información alimentaria facilitada al consumidor y demás normativa aplicable en materia de seguridad alimentaria y protección del consumidor. La plataforma tecnológica que aloja y muestra este menú digital actúa únicamente como proveedor de la herramienta de visualización y pedido, sin intervenir en la elaboración, supervisión ni verificación del contenido nutricional o de alérgenos introducido por el establecimiento, quedando expresamente exonerada de cualquier responsabilidad derivada de errores, omisiones, variaciones de receta, contaminación cruzada en cocina o desactualización de dichos datos. Debido a la elaboración artesanal y manual de los platos, los pesos finales servidos y los valores calóricos pueden sufrir variaciones respecto a los indicados. Se recomienda encarecidamente a los clientes con alergias, intolerancias o necesidades dietéticas especiales que lo comuniquen directamente al personal del establecimiento antes de realizar su pedido, para obtener información actualizada y personalizada.',
-      privacyTextData: 'Responsable y base legal: el responsable del tratamiento de los datos es el propio establecimiento (Á Libretto), que trata sus datos personales (nombre y teléfono, en pedidos para llevar; valoraciones, si las envía) sobre la base de la ejecución de la relación contractual/precontractual necesaria para gestionar su pedido y de su interés legítimo en mejorar el servicio. Conservación: los datos de pedidos para llevar se eliminan automáticamente de nuestros servidores en un plazo máximo de 48 horas; las valoraciones se conservan de forma anonimizada con fines estadísticos. Destinatarios: para el funcionamiento técnico utilizamos como encargado de tratamiento a Supabase Inc., que aloja la base de datos, sin que se realicen cesiones a terceros con fines comerciales. Derechos: puede ejercer en cualquier momento sus derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad dirigiéndose al personal del establecimiento, y reclamar ante la Agencia Española de Protección de Datos (www.aepd.es) si lo considera necesario.',
-      privacyTextCookies: 'Cookies y almacenamiento local: este menú digital no utiliza cookies de publicidad ni de seguimiento con fines comerciales. Utilizamos almacenamiento local del navegador (localStorage/sessionStorage), técnicamente necesario para el funcionamiento básico del menú, con las siguientes finalidades: recordar el idioma seleccionado, guardar temporalmente los productos añadidos a su pedido (carrito/favoritos) y mantener identificada su mesa o modalidad de pedido (mesa/para llevar) durante su visita. Esta información se almacena únicamente en su propio dispositivo, no se transmite a nuestros servidores salvo al confirmar el pedido, y puede eliminarla en cualquier momento borrando los datos de navegación de su navegador.',
-      cookieBannerText: 'Utilizamos almacenamiento local del navegador, técnicamente necesario, para recordar tu idioma, tu mesa y los productos de tu pedido. No usamos cookies de publicidad ni de seguimiento. Al continuar navegando aceptas su uso.', cookieAcceptBtn: 'Aceptar y continuar', cookieInfoBtn: 'Más info',
-      busyBanner: '🔥 Cocina con alta demanda. Tiempos de espera ligeramente mayores a lo habitual.',
-      fbTitle: '¿Qué tal la comida?', fbPlaceholder: '¿Qué podemos mejorar?', fbBtn: 'Enviar Feedback', fbThanks: '¡Gracias por ayudarnos a mejorar!', fbGoogle: '¡Genial! Nos ayudaría mucho una reseña en Google.', fbGoogleBtn: 'Dejar reseña en Google', fbDirectTitle: '¡Gracias por tu visita!', tablesFree: 'mesas libres', tablesFull: 'Sin mesas libres', tablesFor: 'plazas',
-      weightLabel:'Peso', kcalLabel:'kcal', ingredientsLabel:'Ingredientes', allergensLabel:'Alérgenos', noAllergens:'Sin alérgenos declarados',
-      splitModeEqual: 'Partes iguales', splitModeProduct: 'Por producto', splitProductHint: 'Asigna cada producto a una persona.', personLabel: 'Persona'
+        'Antipasti':'Antipasti / Aperitive',
+        'Salate':'Salate',
+        'Paste':'Paste',
+        'Carne':'Carne și Pește',
+        'Pizza':'Pizza',
+        'Deserturi':'Deserturi',
+        'Băuturi':'Băuturi',
+        'altele':'Altele'
+      },
+      smartWaiter: '💳 Plată / Ajutor 🙋‍♂️', smartCart: 'Comanda Mea', splitTitle: 'Împarte nota', splitDesc: 'Calculează rapid cât trebuie să plătească fiecare persoană.', sl1: 'Total coș:', sl2: 'Numărul de persoane:', sl3: 'Bacșiș (%):',
+      badgeEpuizat: 'Epuizat', ribbonEsp: 'Specialitate',
+      alertPayload: { cash: 'Nota (Cash)', card: 'Nota (Card)', help: 'Ajutor / Altceva' },
+      privacyTitle: 'Politica de Confidențialitate (GDPR)', privacyText: 'Colectăm numele și telefonul dumneavoastră exclusiv pentru a gestiona comanda de tip Takeaway. Datele sunt șterse automat de pe serverele noastre în 48 de ore, conform GDPR.', privacyBtn: 'Politica de Confidențialitate', gdprNote: 'Datele tale vor fi șterse automat în 48h (GDPR).',
+      privacyAllergensText: 'Aviz privind gramajele, valorile nutriționale și alergenii: greutățile (gramajele), valorile calorice (kcal) și lista de ingrediente și alergeni afișate în acest meniu digital au caracter strict orientativ și informativ. Aceste date sunt introduse, actualizate și validate exclusiv de către unitate (restaurantul), care este singura responsabilă de exactitatea și actualizarea lor, conform Regulamentului (UE) nr. 1169/2011 privind informarea consumatorilor cu privire la produsele alimentare și oricărei alte reglementări aplicabile în materie de siguranță alimentară și protecția consumatorului. Platforma tehnologică ce găzduiește și afișează acest meniu digital acționează exclusiv ca furnizor al instrumentului de afișare și comandă, fără a interveni în prepararea, supravegherea sau verificarea conținutului nutrițional sau al alergenilor introduși de unitate, fiind exonerată în mod expres de orice răspundere derivată din erori, omisiuni, variații de rețetă, contaminare încrucișată în bucătărie sau date neactualizate. Din cauza preparării artizanale și manuale a preparatelor, greutățile finale servite și valorile calorice pot varia față de cele indicate. Se recomandă insistent clienților cu alergii, intoleranțe sau nevoi alimentare speciale să comunice acest lucru direct personalului unității înainte de a plasa comanda, pentru a obține informații actualizate și personalizate.',
+      privacyTextData: 'Operator și temei legal: operatorul datelor este chiar unitatea (Á Libretto), care prelucrează datele dumneavoastră personale (nume și telefon, pentru comenzile la pachet; recenzii, dacă le trimiteți) pe baza executării relației contractuale/precontractuale necesare pentru gestionarea comenzii și a interesului său legitim de a îmbunătăți serviciul. Păstrare: datele comenzilor la pachet sunt șterse automat de pe serverele noastre în maximum 48 de ore; recenziile sunt păstrate în formă anonimizată în scopuri statistice. Destinatari: pentru funcționarea tehnică folosim ca persoană împuternicită Supabase Inc., care găzduiește baza de date, fără a exista cedări către terți în scopuri comerciale. Drepturi: puteți exercita oricând drepturile de acces, rectificare, ștergere, opoziție, restricționarea prelucrării și portabilitate, adresându-vă personalului unității, și puteți depune o plângere la Autoritatea Națională de Supraveghere a Prelucrării Datelor cu Caracter Personal (ANSPDCP) dacă considerați necesar.',
+      privacyTextCookies: 'Cookie-uri și stocare locală: acest meniu digital nu folosește cookie-uri de publicitate sau de urmărire în scopuri comerciale. Folosim stocarea locală a browserului (localStorage/sessionStorage), necesară din punct de vedere tehnic pentru funcționarea de bază a meniului, cu următoarele scopuri: reținerea limbii selectate, salvarea temporară a produselor adăugate în comanda dumneavoastră (coș/favorite) și menținerea identificată a mesei sau a modalității de comandă (masă/la pachet) în timpul vizitei. Aceste informații sunt stocate exclusiv pe dispozitivul dumneavoastră, nu sunt transmise serverelor noastre decât la confirmarea comenzii, și pot fi șterse oricând prin ștergerea datelor de navigare din browser.',
+      cookieBannerText: 'Folosim stocarea locală a browserului, necesară din punct de vedere tehnic, pentru a reține limba, masa și produsele din comanda ta. Nu folosim cookie-uri de publicitate sau de urmărire. Continuând navigarea, accepți utilizarea lor.', cookieAcceptBtn: 'Accept și continui', cookieInfoBtn: 'Mai multe info',
+      busyBanner: '🔥 Bucătăria are cerere mare. Timpi de așteptare ușor mai mari decât de obicei.',
+      fbTitle: 'Cum a fost mâncarea?', fbPlaceholder: 'Ce putem îmbunătăți?', fbBtn: 'Trimite Feedback', fbThanks: 'Mulțumim că ne ajuți să ne îmbunătățim!', fbGoogle: 'Perfect! Ne-ar ajuta mult o recenzie pe Google.', fbGoogleBtn: 'Lasă o recenzie pe Google', fbDirectTitle: 'Mulțumim pentru vizită!', tablesFree: 'mese libere', tablesFull: 'Nicio masă liberă', tablesFor: 'locuri',
+      weightLabel:'Greutate', kcalLabel:'kcal', ingredientsLabel:'Ingrediente', allergensLabel:'Alergeni', noAllergens:'Fără alergeni declarați',
+      splitModeEqual: 'Părți egale', splitModeProduct: 'Pe produs', splitProductHint: 'Atribuie fiecare produs unei persoane.', personLabel: 'Persoana'
     },
     en: { 
       flag:'🇬🇧', code:'EN', eyebrow:'Digital menu', title:'Á Libretto', tagline:'International cocktails, refined drinks and delicious dishes.', 
       allChip:'All', searchPlaceholder:'Search...', emptyState:'No products found.', 
       totalLabel:'Total:', btnOrderBar:'Send Order', trackerTitle:'Your order',
-      obLangTitle:'Welcome!', obLangSubtitle:'Choose your menu language', 
       obModeTitle:'How would you like to order?', obModeSubtitle:'Pick one option to continue.', 
       dineIn:"🍽️ I'm at a table", takeaway:'🥡 Takeaway', takeawayLabel:'Takeaway', 
       orderModalTitle:'Table Number', orderModalDesc:'Please enter your table number to send the order.', 
@@ -684,71 +672,32 @@
       callCash:'💵 I want to pay (Cash)', callCard:'💳 I want to pay (Card)', callHelp:'🙋‍♂️ I need help', 
       alertSent:(m)=>`The waiter has been called to table ${m}!`, 
       catNames:{
-        'Antipasti/ Entrantes':'Starters',
-        'Ensaladas':'Salads',
-        'Pastas':'Pasta',
-        'Carnes':'Meat & Fish',
-        'Pizzas':'Pizzas',
-        'Postres':'Desserts',
-        'Bebidas':'Drinks',
-        'otros':'Other'
+        'Antipasti':'Starters',
+        'Salate':'Salads',
+        'Paste':'Pasta',
+        'Carne':'Meat & Fish',
+        'Pizza':'Pizza',
+        'Deserturi':'Desserts',
+        'Băuturi':'Drinks',
+        'altele':'Other'
       }, 
       smartWaiter: '💳 Pay / Help 🙋‍♂️', smartCart: 'My Order', splitTitle: 'Split the bill', splitDesc: 'Quickly calculate how much each person pays.', sl1: 'Cart total:', sl2: 'Number of people:', sl3: 'Tip (%):',
       badgeEpuizat: 'Sold Out', ribbonEsp: 'Specialty',
       alertPayload: { cash: 'Bill (Cash)', card: 'Bill (Card)', help: 'Help / Other' },
       privacyTitle: 'Privacy Policy (GDPR)', privacyText: 'We collect your name and phone number solely to manage your takeaway order. Data is automatically deleted from our servers within 48 hours in compliance with GDPR.', privacyBtn: 'Privacy Policy', gdprNote: 'Your data will be auto-deleted in 48h (GDPR).',
       privacyAllergensText: 'Notice regarding weights, nutritional values and allergens: the weights, calorie (kcal) values, and the list of ingredients and allergens shown in this digital menu are provided for guidance and informational purposes only. This information is entered, updated, and validated exclusively by the establishment (the restaurant), which is solely responsible for its accuracy and for keeping it up to date, in accordance with EU Regulation No. 1169/2011 on the provision of food information to consumers and any other applicable food-safety and consumer-protection regulations. The technology platform hosting and displaying this digital menu acts solely as the provider of the display and ordering tool; it does not take part in preparing, supervising, or verifying the nutritional or allergen content entered by the establishment, and is therefore expressly released from any liability arising from errors, omissions, recipe variations, cross-contact in the kitchen, or outdated information. Because dishes are prepared by hand, the actual weight served and calorie values may vary from those indicated. Customers with allergies, intolerances, or special dietary needs are strongly advised to inform staff directly before ordering, to receive current, personalized information.',
-      privacyTextData: 'Data controller and legal basis: the data controller is the establishment itself (Á Libretto), which processes your personal data (name and phone number, for takeaway orders; reviews, if you submit any) on the legal basis of performing the contractual/pre-contractual relationship needed to manage your order and its legitimate interest in improving the service. Retention: takeaway order data is automatically deleted from our servers within a maximum of 48 hours; reviews are kept in anonymized form for statistical purposes. Recipients: for technical operation we use Supabase Inc. as data processor, which hosts the database; we do not share your data with third parties for commercial purposes. Rights: you may exercise your rights of access, rectification, erasure, objection, restriction of processing, and portability at any time by contacting the establishment staff, and you may lodge a complaint with your national data protection authority if you consider it necessary.',
+      privacyTextData: 'Data controller and legal basis: the data controller is the establishment itself (Á Libretto), which processes your personal data (name and phone number, for takeaway orders; reviews, if you submit any) on the legal basis of performing the contractual/pre-contractual relationship needed to manage your order and its legitimate interest in improving the service. Retention: takeaway order data is automatically deleted from our servers within a maximum of 48 hours; reviews are kept in anonymized form for statistical purposes. Recipients: for technical operation we use Supabase Inc. as data processor, which hosts the database; we do not share your data with third parties for commercial purposes. Rights: you may exercise your rights of access, rectification, erasure, objection, restriction of processing, and portability at any time by contacting the establishment staff, and you may lodge a complaint with the Romanian data protection authority (ANSPDCP) if you consider it necessary.',
       privacyTextCookies: 'Cookies and local storage: this digital menu does not use advertising or tracking cookies for commercial purposes. We use browser local storage (localStorage/sessionStorage), technically necessary for the menu\'s basic operation, for the following purposes: remembering your selected language, temporarily saving the items added to your order (cart/favorites), and keeping track of your table or ordering mode (dine-in/takeaway) during your visit. This information is stored only on your own device, is not transmitted to our servers except when you confirm your order, and can be deleted at any time by clearing your browser\'s browsing data.',
       cookieBannerText: 'We use browser local storage, technically necessary, to remember your language, your table and the items in your order. We do not use advertising or tracking cookies. By continuing to browse you accept its use.', cookieAcceptBtn: 'Accept and continue', cookieInfoBtn: 'More info',
       busyBanner: '🔥 Kitchen is very busy right now. Waiting times are slightly longer than usual.',
       fbTitle: 'How was your food?', fbPlaceholder: 'What can we improve?', fbBtn: 'Send Feedback', fbThanks: 'Thank you for your feedback!', fbGoogle: 'Great! We would love a review on Google.', fbGoogleBtn: 'Leave Google Review', fbDirectTitle: 'Thanks for visiting us!', tablesFree: 'tables free', tablesFull: 'No tables free', tablesFor: 'seats',
       weightLabel:'Weight', kcalLabel:'kcal', ingredientsLabel:'Ingredients', allergensLabel:'Allergens', noAllergens:'No declared allergens',
       splitModeEqual: 'Equal parts', splitModeProduct: 'By product', splitProductHint: 'Assign each product to a person.', personLabel: 'Person'
-    },
-    fr: { 
-      flag:'🇫🇷', code:'FR', eyebrow:'Menu numérique', title:'Á Libretto', tagline:'Cocktails internationaux, boissons raffinées et plats délicieux.', 
-      allChip:'Tout', searchPlaceholder:'Rechercher...', emptyState:'Aucun produit trouvé.', 
-      totalLabel:'Total:', btnOrderBar:'Envoyer la commande', trackerTitle:'Votre commande',
-      obLangTitle:'Bienvenue !', obLangSubtitle:'Choisissez la langue de votre menu', 
-      obModeTitle:'Comment souhaitez-vous commander ?', obModeSubtitle:'Choisissez une option pour continuer.', 
-      dineIn:"🍽️ Je suis à une table", takeaway:'🥡 À emporter', takeawayLabel:'À emporter', 
-      orderModalTitle:'Numéro de table', orderModalDesc:'Veuillez entrer votre numéro de table pour envoyer la commande.', 
-      takeawayTitle:'Commande à emporter', takeawayDesc:'Veuillez entrer votre nom et numéro de téléphone pour vous contacter.',
-      tablePlaceholder:'Ex: 4', orderNotePlaceholder:'Note pour votre commande (optionnel).', 
-      tkNameHolder: 'Votre Nom (Ex: Jean)', tkPhoneHolder: 'Téléphone (Ex: 0612345678)',
-      takeawayReq: 'Veuillez entrer votre nom et numéro de téléphone.',
-      sendOrderBtnText:'Envoyer la commande', sendingText:'Envoi...', 
-      callWaiterTitle:'Besoin de nous ?', callWaiterDesc:'Sélectionnez la raison de votre appel.', 
-      callCash:'💵 Je veux payer (Espèces)', callCard:'💳 Je veux payer (Carte)', callHelp:"🙋‍♂️ J'ai besoin d'aide", 
-      alertSent:(m)=>`Le serveur a été appelé à la table ${m} !`, 
-      catNames:{
-        'Antipasti/ Entrantes':'Entrées',
-        'Ensaladas':'Salades',
-        'Pastas':'Pâtes',
-        'Carnes':'Viandes & Poissons',
-        'Pizzas':'Pizzas',
-        'Postres':'Desserts',
-        'Bebidas':'Boissons',
-        'otros':'Autre'
-      }, 
-      smartWaiter: '💳 Payer / Aide 🙋‍♂️', smartCart: 'Ma Commande', splitTitle: 'Partager l\'addition', splitDesc: 'Calculez rapidement la part de chacun.', sl1: 'Total du panier:', sl2: 'Nombre de personnes:', sl3: 'Pourboire (%):',
-      badgeEpuizat: 'Épuisé', ribbonEsp: 'Spécialité',
-      alertPayload: { cash: 'L\'addition (Espèces)', card: 'L\'addition (Carte)', help: 'Aide / Autre' },
-      privacyTitle: 'Politique de confidentialité (RGPD)', privacyText: 'Nous collectons votre nom et votre numéro de téléphone uniquement pour gérer votre commande à emporter. Les données sont automatiquement supprimées de nos serveurs dans les 48 heures conformément au RGPD.', privacyBtn: 'Politique de confidentialité', gdprNote: 'Vos données seront supprimées sous 48h (RGPD).',
-      privacyAllergensText: 'Avis relatif aux poids, valeurs nutritionnelles et allergènes : les poids, les valeurs caloriques (kcal) ainsi que la liste des ingrédients et des allergènes indiqués dans ce menu numérique sont fournis à titre purement indicatif et informatif. Ces données sont saisies, mises à jour et validées exclusivement par l\'établissement (le restaurant), qui est seul responsable de leur exactitude et de leur actualisation, conformément au Règlement (UE) n° 1169/2011 concernant l\'information des consommateurs sur les denrées alimentaires et à toute autre réglementation applicable en matière de sécurité alimentaire et de protection des consommateurs. La plateforme technologique qui héberge et affiche ce menu numérique agit uniquement en tant que fournisseur de l\'outil d\'affichage et de commande ; elle n\'intervient pas dans l\'élaboration, la supervision ou la vérification du contenu nutritionnel ou des allergènes saisis par l\'établissement, et se trouve donc expressément exonérée de toute responsabilité découlant d\'erreurs, d\'omissions, de variations de recettes, de contaminations croisées en cuisine ou de données obsolètes. En raison de la préparation artisanale et manuelle des plats, le poids réellement servi et les valeurs caloriques peuvent varier par rapport aux indications fournies. Il est vivement recommandé aux clients souffrant d\'allergies, d\'intolérances ou ayant des besoins alimentaires particuliers d\'en informer directement le personnel de l\'établissement avant de passer commande, afin d\'obtenir des informations actualisées et personnalisées.',
-      privacyTextData: 'Responsable du traitement et base légale : le responsable du traitement est l\'établissement lui-même (Á Libretto), qui traite vos données personnelles (nom et numéro de téléphone, pour les commandes à emporter ; avis, si vous en envoyez) sur la base de l\'exécution de la relation contractuelle/précontractuelle nécessaire à la gestion de votre commande et de son intérêt légitime à améliorer le service. Conservation : les données des commandes à emporter sont automatiquement supprimées de nos serveurs dans un délai maximal de 48 heures ; les avis sont conservés sous forme anonymisée à des fins statistiques. Destinataires : pour le fonctionnement technique, nous utilisons Supabase Inc. comme sous-traitant, qui héberge la base de données ; nous ne partageons pas vos données avec des tiers à des fins commerciales. Droits : vous pouvez exercer à tout moment vos droits d\'accès, de rectification, d\'effacement, d\'opposition, de limitation du traitement et de portabilité en vous adressant au personnel de l\'établissement, et déposer une réclamation auprès de votre autorité nationale de protection des données si vous le jugez nécessaire.',
-      privacyTextCookies: 'Cookies et stockage local : ce menu numérique n\'utilise pas de cookies publicitaires ni de suivi à des fins commerciales. Nous utilisons le stockage local du navigateur (localStorage/sessionStorage), techniquement nécessaire au fonctionnement de base du menu, aux fins suivantes : mémoriser la langue sélectionnée, enregistrer temporairement les articles ajoutés à votre commande (panier/favoris) et suivre votre table ou votre mode de commande (sur place/à emporter) pendant votre visite. Ces informations sont stockées uniquement sur votre propre appareil, ne sont pas transmises à nos serveurs sauf lors de la confirmation de votre commande, et peuvent être supprimées à tout moment en effaçant les données de navigation de votre navigateur.',
-      cookieBannerText: 'Nous utilisons le stockage local du navigateur, techniquement nécessaire, pour mémoriser votre langue, votre table et les articles de votre commande. Nous n\'utilisons pas de cookies publicitaires ni de suivi. En continuant à naviguer, vous acceptez leur utilisation.', cookieAcceptBtn: 'Accepter et continuer', cookieInfoBtn: 'Plus d\'infos',
-      busyBanner: '🔥 La cuisine est très occupée. Le temps d\'attente est allongé.',
-      fbTitle: 'Comment était votre repas ?', fbPlaceholder: 'Que pouvons-nous améliorer ?', fbBtn: 'Envoyer', fbThanks: 'Merci pour votre retour !', fbGoogle: 'Super ! Laissez-nous un avis sur Google.', fbGoogleBtn: 'Avis Google', fbDirectTitle: 'Merci de votre visite !', tablesFree: 'tables libres', tablesFull: 'Aucune table libre', tablesFor: 'places',
-      weightLabel:'Poids', kcalLabel:'kcal', ingredientsLabel:'Ingrédients', allergensLabel:'Allergènes', noAllergens:'Aucun allergène déclaré',
-      splitModeEqual: 'Parts égales', splitModeProduct: 'Par produit', splitProductHint: 'Attribuez chaque produit à une personne.', personLabel: 'Personne'
     }
   };
 
   function applyLanguage(lang){
-    if(!I18N[lang]) lang = 'es';
+    if(!I18N[lang]) lang = 'ro';
     currentLang = lang;
     localStorage.setItem('aLibretto:lang', lang);
     const t = I18N[lang];
@@ -764,8 +713,6 @@
     document.getElementById('searchInput').placeholder = t.searchPlaceholder;
     document.getElementById('trackerTitle').textContent = t.trackerTitle;
 
-    document.getElementById('obLangTitle').textContent = t.obLangTitle;
-    document.getElementById('obLangSubtitle').textContent = t.obLangSubtitle;
     document.getElementById('obModeTitle').textContent = t.obModeTitle;
     document.getElementById('obModeSubtitle').textContent = t.obModeSubtitle;
     document.getElementById('btnDineIn').textContent = t.dineIn;
@@ -815,6 +762,8 @@
     document.getElementById('fbGoogleText').textContent = t.fbGoogle;
     document.getElementById('fbGoogleBtn').textContent = t.fbGoogleBtn;
 
+    document.documentElement.lang = lang;
+
     renderTagFilters(); 
     render(); 
     updateBottomBar();
@@ -842,7 +791,7 @@
   });
 
   document.querySelectorAll('.lang-option').forEach(opt => {
-      opt.addEventListener('click', () => { applyLanguage(opt.dataset.lang); });
+      opt.addEventListener('click', () => { applyLanguage(opt.dataset.lang); langDropdown.classList.remove('show'); });
   });
 
   document.getElementById('btnPrivacyPolicy').addEventListener('click', () => {
@@ -896,11 +845,11 @@
     }
     document.getElementById('emptyState').style.display = 'none';
 
-    [...CATEGORY_ORDER, 'otros'].forEach(catKey => {
+    [...CATEGORY_ORDER, 'altele'].forEach(catKey => {
       const items = filtered.filter(i => getMainCategory(i) === catKey);
       if(items.length === 0) return;
 
-      const catName = t.catNames[catKey] || t.catNames.otros;
+      const catName = t.catNames[catKey] || t.catNames.altele;
       let html = `<section class="category-section"><h2>${catName}</h2><div class="grid">`;
       
       items.forEach(item => {
@@ -1028,8 +977,6 @@
   document.getElementById('splitModeEqualBtn').addEventListener('click', () => setSplitMode('equal'));
   document.getElementById('splitModeProductBtn').addEventListener('click', () => setSplitMode('product'));
 
-  // Dividir por producto: cada producto del carrito se asigna a una persona (1..spPersons).
-  // El total de cada persona se calcula sumando sus productos + su parte proporcional de propina.
   function renderSplitProductView() {
       const t = I18N[currentLang];
       document.getElementById('spPersons').textContent = spPersons;
@@ -1101,31 +1048,18 @@
   }
 
   const onboardingOverlay = document.getElementById('onboardingOverlay');
-  const obLangStep = document.getElementById('obLangStep');
-  const obModeStep = document.getElementById('obModeStep');
 
-  function needsLang(){ return !localStorage.getItem('aLibretto:lang'); }
   function needsMode(){ return !sessionStorage.getItem('fieraMesa'); }
 
-  function showModeStepOrClose(){
-    if(needsMode()){ obLangStep.style.display = 'none'; obModeStep.style.display = 'block'; } 
-    else { onboardingOverlay.classList.remove('open'); }
-  }
+  if(!currentLang) currentLang = 'ro';
+  applyLanguage(currentLang);
 
-  if(needsLang() || needsMode()){ 
-      if(!currentLang) currentLang = 'es';
-      onboardingOverlay.classList.add('open'); 
-      if(!needsLang()) showModeStepOrClose(); 
-  } else {
-      applyLanguage(currentLang);
+  if(needsMode()){
+      onboardingOverlay.classList.add('open');
   }
-
-  document.querySelectorAll('.lang-pick-btn').forEach(btn => {
-    btn.addEventListener('click', () => { applyLanguage(btn.dataset.lang); showModeStepOrClose(); });
-  });
 
   document.getElementById('btnDineIn').addEventListener('click', () => { sessionStorage.setItem('fieraMode', 'masa'); sessionStorage.setItem('fieraMesa', 'stabilita'); onboardingOverlay.classList.remove('open'); });
-  document.getElementById('btnTakeaway').addEventListener('click', () => { const t = I18N[currentLang]; sessionStorage.setItem('fieraMode', 'takeaway'); sessionStorage.setItem('fieraMesa', 'Takeaway'); onboardingOverlay.classList.remove('open'); });
+  document.getElementById('btnTakeaway').addEventListener('click', () => { sessionStorage.setItem('fieraMode', 'takeaway'); sessionStorage.setItem('fieraMesa', 'Takeaway'); onboardingOverlay.classList.remove('open'); });
 
   const orderModal = document.getElementById('orderOverlay');
   const callModal = document.getElementById('callWaiterOverlay');
@@ -1225,31 +1159,30 @@
       const tracker = document.getElementById('liveTracker');
       const statText = document.getElementById('trackerStatusText');
       const progress = document.getElementById('trackerProgress');
-      const t = I18N[currentLang];
       
       tracker.classList.add('show');
-      statText.textContent = '👨‍🍳 ' + (currentLang==='es'?'Recibido por el staff': (currentLang==='fr'?'Reçu par le personnel':'Order Received'));
+      statText.textContent = '👨‍🍳 ' + (currentLang==='en' ? 'Order Received' : 'Primit de staff');
       progress.style.width = '35%';
 
       _supabase.channel(`order_tracker_${id}`)
       .on('postgres_changes', { event: 'UPDATE', schema: 'public', table: 'comenzi', filter: `id=eq.${id}` }, p => {
           const s = p.new.status;
           if (s === 'gata' || s === 'in_lucru') {
-              statText.textContent = '🔥 ' + (currentLang==='es'?'En preparación': (currentLang==='fr'?'En préparation':'Preparing'));
+              statText.textContent = '🔥 ' + (currentLang==='en' ? 'Preparing' : 'În preparare');
               progress.style.width = '70%';
           } else if (s === 'finalizata') {
               if(p.new.comp_motiv) {
                   statText.textContent = '🎁 GRATIS';
                   statText.style.color = '#fbbf24';
               } else {
-                  statText.textContent = '✅ ' + (currentLang==='es'?'Finalizado': (currentLang==='fr'?'Terminé':'Completed'));
+                  statText.textContent = '✅ ' + (currentLang==='en' ? 'Completed' : 'Finalizat');
               }
               progress.style.width = '100%';
               setTimeout(() => { 
                   tracker.classList.remove('show'); 
               }, 6000);
           } else if (s === 'anulata') {
-              statText.textContent = '❌ ' + (currentLang==='es'?'Cancelado': (currentLang==='fr'?'Annulé':'Canceled'));
+              statText.textContent = '❌ ' + (currentLang==='en' ? 'Canceled' : 'Anulat');
               statText.style.color = 'var(--danger)';
               progress.style.width = '100%';
               progress.style.background = 'var(--danger)';
@@ -1277,10 +1210,9 @@
 
           if(validTableNumbers && validTableNumbers.size > 0 && !validTableNumbers.has(finalTableNr)) {
               showCustomAlert(
-                currentLang === 'es' ? 'Mesa no válida' : (currentLang === 'fr' ? 'Table invalide' : 'Invalid table'),
-                currentLang === 'es' ? `No existe la mesa "${finalTableNr}". Revisa el número e inténtalo de nuevo.` :
-                (currentLang === 'fr' ? `La table "${finalTableNr}" n'existe pas. Vérifiez le numéro.` :
-                `Table "${finalTableNr}" doesn't exist. Please check the number.`)
+                currentLang === 'en' ? 'Invalid table' : 'Masă invalidă',
+                currentLang === 'en' ? `Table "${finalTableNr}" doesn't exist. Please check the number.` :
+                `Nu există masa "${finalTableNr}". Verifică numărul și încearcă din nou.`
               );
               return;
           }
@@ -1291,10 +1223,9 @@
 
       if(items.length === 0) {
           showCustomAlert(
-            currentLang === 'es' ? 'Carrito vacío' : (currentLang === 'fr' ? 'Panier vide' : 'Empty cart'),
-            currentLang === 'es' ? 'Añade al menos un producto antes de enviar el pedido.' :
-            (currentLang === 'fr' ? 'Ajoutez au moins un produit avant d\'envoyer la commande.' :
-            'Add at least one product before sending the order.')
+            currentLang === 'en' ? 'Empty cart' : 'Coș gol',
+            currentLang === 'en' ? 'Add at least one product before sending the order.' :
+            'Adaugă cel puțin un produs înainte de a trimite comanda.'
           );
           return;
       }
@@ -1310,13 +1241,6 @@
       const barItems = items.filter(i => (i.sectiune || 'bar') === 'bar');
       const kitchenItems = items.filter(i => i.sectiune === 'bucatarie');
 
-      // IMPORTANT: nota se atașează DOAR la secțiunile care au efectiv produse în comandă.
-      // Astfel:
-      //  - comandă doar cu mâncare + notă  -> se creează O SINGURĂ comandă (bucătărie), cu nota inclusă
-      //  - comandă doar cu băutură + notă  -> se creează O SINGURĂ comandă (bar), cu nota inclusă
-      //  - comandă cu ambele + notă        -> se creează DOUĂ comenzi (bar + bucătărie), fiecare cu propria
-      //                                        copie a notei, legate prin același grup_comanda
-      // Nu se mai creează comenzi "goale" doar pentru a căra nota către o secțiune fără produse.
       let payloads = [];
       if(barItems.length > 0) {
         payloads.push({
@@ -1337,7 +1261,7 @@
       btn.textContent = t.sendOrderBtnText; btn.disabled = false;
 
       if (error) {
-          showCustomAlert("Error", "Error DB: " + error.message);
+          showCustomAlert("Error", "Eroare DB: " + error.message);
       } else {
         orderModal.classList.remove('open');
         document.getElementById('orderNoteInput').value = '';
@@ -1356,7 +1280,7 @@
       const t = I18N[currentLang];
       let mesa = sessionStorage.getItem('fieraMesa');
       if(!mesa || mesa === 'stabilita') { 
-          mesa = prompt("Table Number / Número de mesa:"); 
+          mesa = prompt(currentLang === 'en' ? 'Table Number:' : 'Numărul mesei:'); 
           if(!mesa) return; 
           sessionStorage.setItem('fieraMesa', mesa); 
       }
@@ -1411,7 +1335,7 @@
 
   function renderTablesBadge() {
       if(!salaConfigClient || !salaConfigClient.zones) return;
-      const t = I18N[currentLang] || I18N.es;
+      const t = I18N[currentLang] || I18N.ro;
       let allTables = [];
       salaConfigClient.zones.forEach(z => {
           if(z.mese) z.mese.forEach(m => allTables.push(m));
@@ -1431,7 +1355,7 @@
       } else {
           badge.textContent = `🪑 ${freeTables.length}/${allTables.length} ${t.tablesFree}`;
           badge.classList.add('badge-low');
-          list.innerHTML = freeTables.map(m => `<span>Mesa #${escapeHTML(m.numar)} · ${escapeHTML(m.scaune)} ${t.tablesFor}</span>`).join('');
+          list.innerHTML = freeTables.map(m => `<span>Masa #${escapeHTML(m.numar)} · ${escapeHTML(m.scaune)} ${t.tablesFor}</span>`).join('');
       }
       badge.style.display = 'flex';
   }
@@ -1452,12 +1376,10 @@
   fetch('menu.json')
     .then(r => r.json())
     .then(menuData => {
-        // Punem array-ul imediat și randăm
         allItems = Array.isArray(menuData) ? menuData : [];
         if(currentLang) applyLanguage(currentLang);
         else render();
 
-        // Inițializăm Supabase izolat pentru a nu periclita meniul la refresh
         (async function initSupabase() {
             try {
                 const { data: stocData } = await _supabase.from('stoc_produse').select('id_produs').eq('epuizat', true);
@@ -1492,7 +1414,7 @@
     })
     .catch((err) => { 
         console.error("Eroare critica la citirea json:", err);
-        document.getElementById('emptyState').textContent = I18N[currentLang||'es'].emptyState; 
+        document.getElementById('emptyState').textContent = I18N[currentLang||'ro'].emptyState; 
         document.getElementById('emptyState').style.display = 'block'; 
     });
 
