@@ -36,6 +36,7 @@
   .auth-input:focus { border-color: var(--accent); }
   .btn-primary { width: 100%; background: var(--accent); color: white; border: none; padding: 16px; border-radius: 14px; font-weight: 600; font-size: 17px; cursor: pointer; transition: 0.2s;}
   .btn-primary:active { transform: scale(0.97); background: var(--accent-hover); }
+  .auth-error { color: var(--danger); font-size: 13.5px; margin-top: -8px; margin-bottom: 14px; display: none; }
   
   aside { width: 280px; background: var(--bg-card); border-right: 1px solid var(--border); display: flex; flex-direction: column; padding: 24px; z-index: 100; flex-shrink: 0;}
   .brand { font-size: 24px; font-weight: 700; color: var(--accent); margin-bottom: 40px; display: flex; align-items: center; gap: 8px;}
@@ -270,6 +271,7 @@
     <form id="loginForm">
       <input type="email" id="emailInput" class="auth-input" placeholder="Email" required>
       <input type="password" id="passwordInput" class="auth-input" placeholder="Contraseña" required>
+      <p class="auth-error" id="authErrorText"></p>
       <button type="submit" class="btn-primary">Entrar</button>
     </form>
   </div>
@@ -312,6 +314,7 @@
   <div class="user-info">
     <div style="opacity: 0.7; margin-bottom: 4px;">Sesión iniciada:</div>
     <b id="userEmailDisplay" style="color: var(--text); font-size: 14px;">...</b>
+    <div style="opacity: 0.6; margin-top: 4px; font-size: 12px;">Rol: <b id="userRoleDisplay">...</b></div>
     <div class="logout-btn" id="btnLogout">Cerrar sesión</div>
     <div style="margin-top:10px;"><a href="#" onclick="document.getElementById('privacyOverlay').classList.add('open')" style="color:var(--text-muted); font-size:11px; text-decoration:underline;">Política de Privacidad</a></div>
   </div>
@@ -461,6 +464,17 @@
           <ul class="top-list" id="pendingByStaffList"></ul>
       </div>
 
+      <div class="dash-panel">
+          <h3>🧑‍🤝‍🧑 Personal (Roles)</h3>
+          <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 16px;">Roles del staff, tal como están guardados en la base de datos (tabla <code>staff_roles</code>). Los permisos reales (RLS) se basan en esta tabla, no en el email. Para dar de alta a alguien nuevo: crea su cuenta en Supabase → Authentication, y añade su fila aquí desde el SQL Editor.</p>
+          <div class="table-responsive">
+            <table class="staff-table">
+              <thead><tr><th>Email</th><th>Rol</th><th>Desde</th></tr></thead>
+              <tbody id="staffRolesList"><tr><td colspan="3" style="color:var(--text-muted);">Cargando...</td></tr></tbody>
+            </table>
+          </div>
+      </div>
+
       <div class="dash-panel" style="border-color: var(--danger);">
           <h3 style="color: var(--danger);">🗑️ Zona de Riesgo</h3>
           <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 16px;">Elimina permanentemente todo el historial de comandas finalizadas y canceladas de Supabase. Esta acción no se puede deshacer. Los pedidos activos no se ven afectados.</p>
@@ -526,8 +540,8 @@
 
 <script>
 (function(){
-  const SUPABASE_URL = 'https://wnwllyyhtkufcejzjeay.supabase.co';
-  const SUPABASE_ANON_KEY = 'sb_publishable_yCycz19M9_HmXlRN1xjn1Q_5YhFtZPh';
+  const SUPABASE_URL = 'https://dqgcodcxdfgwjaqdtvbi.supabase.co';
+  const SUPABASE_ANON_KEY = 'sb_publishable_N6gG_s8Pmpc-w8m04Es66Q_dcqhEXRA';
   const _supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
   // Helper de protecție XSS - previne executarea de cod malițios trimis din exterior
@@ -541,12 +555,16 @@
         .replace(/'/g, '&#039;');
   }
 
-  let userRole = 'bar'; 
+  const VALID_ROLES = ['director', 'bar', 'bucatarie', 'ospatar'];
+  const ROLE_LABELS = { director: 'Director / Jefe', bar: 'Barra', bucatarie: 'Cocina', ospatar: 'Camarero/a' };
+
+  let userRole = null;
   let currentTab = 'active'; 
   let allOrders = [];
   let fullMenu = [];
   let statsMode = 'today';
   let currentUserEmail = '';
+  let currentUserId = null;
   let meniuCart = {};
   let meniuSearchTerm = '';
   
@@ -645,7 +663,7 @@
 
   function isTakeawayMesa(mesa) {
       const str = String(mesa);
-      return str.startsWith('Tk:') || str === 'Takeaway';
+      return str.startsWith('Tk:') || str === 'Takeaway' || str.startsWith('🥡');
   }
 
   function getSpokenLocationLabel(order) {
@@ -737,20 +755,26 @@
 
   async function checkAuth() {
     const { data: { session } } = await _supabase.auth.getSession();
-    if (session) { document.getElementById('authOverlay').style.display = 'none'; setupUserEnvironment(session.user.email); }
+    if (session) {
+        document.getElementById('authOverlay').style.display = 'none';
+        await setupUserEnvironment(session.user);
+    }
   }
 
   document.getElementById('loginForm').addEventListener('submit', async (e) => {
     e.preventDefault();
+    const errEl = document.getElementById('authErrorText');
+    errEl.style.display = 'none';
     const { data, error } = await _supabase.auth.signInWithPassword({ 
         email: document.getElementById('emailInput').value, 
         password: document.getElementById('passwordInput').value 
     });
     if (!error) {
-        document.getElementById('authOverlay').style.display = 'none';
-        setupUserEnvironment(data.user.email);
+        const ok = await setupUserEnvironment(data.user);
+        if (ok) document.getElementById('authOverlay').style.display = 'none';
     } else {
-        alert("¡Fallo en la autenticación! Revisa email/contraseña.");
+        errEl.textContent = '¡Fallo en la autenticación! Revisa email/contraseña.';
+        errEl.style.display = 'block';
     }
   });
 
@@ -758,16 +782,31 @@
   document.getElementById('btnLogout').addEventListener('click', logoutFn);
   document.getElementById('btnMobileLogout').addEventListener('click', logoutFn);
 
-  function setupUserEnvironment(email) {
-    currentUserEmail = email;
-    document.getElementById('userEmailDisplay').textContent = email;
-    document.getElementById('mobileUserDisplay').textContent = email;
-    const emailLower = email.toLowerCase();
-    
-    if(emailLower.includes('director') || emailLower.includes('admin') || emailLower.includes('jefe')) userRole = 'director';
-    else if(emailLower.includes('bucatarie') || emailLower.includes('cocina')) userRole = 'bucatarie';
-    else if(emailLower.includes('ospatar') || emailLower.includes('camarero')) userRole = 'ospatar';
-    else userRole = 'bar'; 
+  // Resuelve el rol REAL del usuario desde la tabla staff_roles (fuente de verdad para RLS),
+  // no desde el email. Si el usuario no tiene fila en staff_roles, no puede operar: se le
+  // avisa y se cierra sesión, ya que sin rol las políticas RLS bloquean cualquier escritura.
+  async function setupUserEnvironment(user) {
+    currentUserEmail = user.email;
+    currentUserId = user.id;
+    document.getElementById('userEmailDisplay').textContent = currentUserEmail;
+    document.getElementById('mobileUserDisplay').textContent = currentUserEmail;
+
+    const { data: roleRow, error: roleErr } = await _supabase
+      .from('staff_roles')
+      .select('role')
+      .eq('user_id', currentUserId)
+      .maybeSingle();
+
+    if (roleErr || !roleRow || !VALID_ROLES.includes(roleRow.role)) {
+        const errEl = document.getElementById('authErrorText');
+        errEl.textContent = 'Tu cuenta no tiene un rol asignado en staff_roles. Pide al director que te añada.';
+        errEl.style.display = 'block';
+        await _supabase.auth.signOut();
+        return false;
+    }
+
+    userRole = roleRow.role;
+    document.getElementById('userRoleDisplay').textContent = ROLE_LABELS[userRole] || userRole;
 
     if(userRole === 'bucatarie' || userRole === 'bar' || userRole === 'director') {
         document.getElementById('navStock').style.display = 'flex';
@@ -802,10 +841,11 @@
     loadTablesConfig(); 
     loadFreedTables();
     loadBusyMode(); 
-    if(userRole === 'director') loadFeedbacks();
+    if(userRole === 'director') { loadFeedbacks(); loadStaffRolesList(); }
     
     subscribeRealtime();
     setInterval(updateTimersUI, 30000);
+    return true;
   }
 
   const navItems = ['navActive', 'navHistory', 'navStock', 'navAdmin', 'navMeniu', 'navJurnal', 'navMap'];
@@ -858,6 +898,7 @@
         document.getElementById('adminView').style.display = 'block';
         calculateDirectorStats();
         renderHeatmap();
+        loadStaffRolesList();
     } else if(tab === 'meniu') {
         document.getElementById('navMeniu').classList.add('active');
         document.getElementById('pageTitle').textContent = 'Menú - Pedido Rápido';
@@ -875,6 +916,21 @@
         renderZoneTabs();
         renderTablesGrid();
     }
+  }
+
+  async function loadStaffRolesList() {
+      const tbody = document.getElementById('staffRolesList');
+      if (!tbody) return;
+      const { data, error } = await _supabase.from('staff_roles').select('*').order('created_at', { ascending: true });
+      if (error || !data) { tbody.innerHTML = '<tr><td colspan="3" style="color:var(--danger);">Error al cargar.</td></tr>'; return; }
+      if (data.length === 0) { tbody.innerHTML = '<tr><td colspan="3" style="color:var(--text-muted);">Sin personal registrado aún.</td></tr>'; return; }
+      tbody.innerHTML = data.map(r => `
+        <tr>
+          <td class="name-col">${escapeHTML(r.email)}</td>
+          <td>${escapeHTML(ROLE_LABELS[r.role] || r.role)}</td>
+          <td>${new Date(r.created_at).toLocaleDateString('es-ES')}</td>
+        </tr>
+      `).join('');
   }
 
   async function loadTablesConfig() {
@@ -1192,9 +1248,6 @@
     updatePaymentAlertBadge();
   }
 
-  // Devuelve, para un pedido dado, si algún otro pedido del mismo grupo (mismo grup_comanda,
-  // es decir la parte de Bar o la de Cocina de la MISMA comanda del cliente) fue cancelado.
-  // Así el jefe ve enlazadas las dos partes: si cancelan la de bar, se nota también en la de cocina y viceversa.
   function getLinkedCancelledSibling(order) {
       if(!order.grup_comanda) return null;
       const sibling = allOrders.find(o => o.id !== order.id && o.grup_comanda === order.grup_comanda && o.status === 'anulata');
@@ -1303,13 +1356,10 @@
       }
 
       let mesaDisp = escapeHTML(order.mesa);
-      if(mesaDisp !== 'Takeaway' && !mesaDisp.includes('Tk:')) {
+      if(mesaDisp !== 'Takeaway' && !mesaDisp.includes('Tk:') && !mesaDisp.startsWith('🥡')) {
           mesaDisp = '#' + mesaDisp;
       }
 
-      // Aviso de comanda "hermana" (mismo grup_comanda, en Bar/Cocina) que fue cancelada.
-      // Así, si por ejemplo cancelan la parte de Bar de una mesa, en la tarjeta de la parte
-      // de Cocina de la MISMA comanda (y en la vista del director) aparece un aviso enlazado.
       let linkedHtml = '';
       if(!isAlert && order.status !== 'anulata') {
           const sibling = getLinkedCancelledSibling(order);
@@ -1605,10 +1655,6 @@
       renderFraudList(cutoff);
   }
 
-  // --- REPORTE POR EMPLEADO + TASA DE CANCELACIÓN ---
-  // Agrupa por el empleado responsable de cada comanda (quien la creó, o quien la tomó/sirvió).
-  // Para cada uno calcula: nº de pedidos, ingresos generados (igual criterio que las stats generales:
-  // finalizados, con ticket, sin ser regalo), nº de cancelados y % de cancelación sobre su total gestionado.
   function renderStaffReport(cutoff) {
       const relevant = allOrders.filter(o => {
           if(o.produse.some(p => p.nume.includes('ALERTĂ'))) return false;
@@ -1616,7 +1662,7 @@
           return o.status === 'finalizata' || o.status === 'anulata';
       });
 
-      let staffMap = {}; // { email: { pedidos, ingresos, cancelados } }
+      let staffMap = {};
       relevant.forEach(o => {
           const staff = o.creat_de || o.preluat_de || 'Cliente (menú digital)';
           if(!staffMap[staff]) staffMap[staff] = { pedidos: 0, ingresos: 0, cancelados: 0 };
@@ -1653,12 +1699,6 @@
       }).join('');
   }
 
-  // --- DETECCIÓN DE CANCELACIONES SOSPECHOSAS (después de "Listo") ---
-  // Usa el jurnal_activitate (que registra cada cambio de estado) para reconstruir el historial
-  // de cada comanda y detectar si pasó por "gata" (Listo) ANTES de ser "anulata" (Cancelada).
-  // Ese patrón es la señal clásica de fraude: el producto salió de cocina/barra pero la comanda
-  // se anuló en el sistema. Se atribuye al usuario que hizo el cambio a "anulata" (el log.utilizator
-  // real de esa acción, no necesariamente quien creó el pedido).
   async function renderFraudList(cutoff) {
       const listEl = document.getElementById('fraudList');
       try {
@@ -1693,7 +1733,6 @@
 
           suspicious.sort((a,b) => new Date(b.anulataEntry.created_at) - new Date(a.anulataEntry.created_at));
 
-          // Agregado por empleado que canceló, para verlo también junto al reporte por empleado
           let byStaff = {};
           suspicious.forEach(s => { byStaff[s.anulataEntry.utilizator] = (byStaff[s.anulataEntry.utilizator] || 0) + 1; });
 
@@ -1721,9 +1760,6 @@
       }
   }
 
-  // --- HEATMAP DE HORAS PUNTA (día de la semana x hora) ---
-  // Cuenta pedidos (finalizados, no alertas) de los últimos 60 días agrupados por día de la semana
-  // y hora de creación. Sirve para decidir cuándo conviene reforzar personal (ej. viernes/sábado noche).
   async function renderHeatmap() {
       const container = document.getElementById('heatmapContainer');
       const scaleEl = document.getElementById('heatmapScale');
@@ -1737,7 +1773,6 @@
 
           const relevant = data.filter(o => !(o.produse || []).some(p => p.nume && p.nume.includes('ALERTĂ')));
 
-          // matrix[weekday][hour] = count. Weekday: 0=Domingo ... 6=Sábado
           let matrix = Array.from({length:7}, () => Array(24).fill(0));
           relevant.forEach(o => {
               const d = new Date(o.created_at);
@@ -1755,7 +1790,6 @@
               return `rgba(22, 132, 78, ${alpha.toFixed(2)})`;
           }
 
-          // Sólo mostramos horas con algo de actividad histórica (10:00 - 01:00) para no alargar la tabla innecesariamente
           const hoursToShow = [10,11,12,13,14,15,16,17,18,19,20,21,22,23,0,1];
 
           let html = '<table class="heatmap-table"><thead><tr><th></th>';
@@ -1779,7 +1813,6 @@
               scaleEl.innerHTML += `<div style="background: rgba(22,132,78,${alpha.toFixed(2)});"></div>`;
           }
 
-          // Encuentra el top 3 combinaciones día+hora con más pedidos, para dar una recomendación directa
           let flat = [];
           matrix.forEach((row, day) => row.forEach((v, h) => { if(v > 0) flat.push({day, h, v}); }));
           flat.sort((a,b) => b.v - a.v);
@@ -2004,8 +2037,6 @@
               showBackgroundAlert(title, body);
           }
 
-          // Si se cancela un pedido, refrescamos las tarjetas activas para que la parte
-          // "hermana" (bar/cocina de la misma comanda) muestre el aviso enlazado al instante.
           if (p.new.status === 'anulata' && prevStatus !== 'anulata') {
               renderOrders();
           }
