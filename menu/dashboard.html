@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="ro">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-<title>Á Libretto OS &mdash; POS & Gestión</title>
+<title>Á Libretto OS &mdash; POS & Gestiune</title>
 <meta name="robots" content="noindex, nofollow">
 
 <link rel="manifest" href="manifest.json">
@@ -267,12 +267,12 @@
 <div class="auth-overlay" id="authOverlay">
   <div class="auth-card">
     <h2>Á Libretto OS</h2>
-    <p style="color: var(--text-muted); margin-bottom: 30px;">Autenticación Personal Staff</p>
+    <p style="color: var(--text-muted); margin-bottom: 30px;">Autentificare Personal</p>
     <form id="loginForm">
       <input type="email" id="emailInput" class="auth-input" placeholder="Email" required>
-      <input type="password" id="passwordInput" class="auth-input" placeholder="Contraseña" required>
+      <input type="password" id="passwordInput" class="auth-input" placeholder="Parolă" required>
       <p class="auth-error" id="authErrorText"></p>
-      <button type="submit" class="btn-primary">Entrar</button>
+      <button type="submit" class="btn-primary">Intră</button>
     </form>
   </div>
 </div>
@@ -282,66 +282,66 @@
   
   <div class="nav-item active" id="navActive">
       <div class="nav-icon">🛎️</div>
-      <div class="nav-text">Pedidos</div>
+      <div class="nav-text">Comenzi</div>
       <span class="badge-count" id="countActive">0</span>
   </div>
   <div class="nav-item" id="navMap" style="display:none;">
       <div class="nav-icon">🗺️</div>
-      <div class="nav-text">Sala</div>
+      <div class="nav-text">Sală</div>
       <span class="badge-count" id="countMesasLibres" style="display:none;">0</span>
   </div>
   <div class="nav-item" id="navHistory">
       <div class="nav-icon">🧾</div>
-      <div class="nav-text">Historial</div>
+      <div class="nav-text">Istoric</div>
   </div>
   <div class="nav-item" id="navMeniu" style="display:none;">
       <div class="nav-icon">📋</div>
-      <div class="nav-text">Menú</div>
+      <div class="nav-text">Meniu</div>
   </div>
   <div class="nav-item" id="navStock" style="display:none;">
       <div class="nav-icon">📦</div>
-      <div class="nav-text">Stock</div>
+      <div class="nav-text">Stoc</div>
   </div>
   <div class="nav-item" id="navAdmin" style="display:none;">
       <div class="nav-icon">📊</div>
-      <div class="nav-text">Jefe</div>
+      <div class="nav-text">Manager</div>
   </div>
   <div class="nav-item" id="navJurnal" style="display:none;">
       <div class="nav-icon">🕵️</div>
-      <div class="nav-text">Log</div>
+      <div class="nav-text">Jurnal</div>
   </div>
   
   <div class="user-info">
-    <div style="opacity: 0.7; margin-bottom: 4px;">Sesión iniciada:</div>
+    <div style="opacity: 0.7; margin-bottom: 4px;">Sesiune activă:</div>
     <b id="userEmailDisplay" style="color: var(--text); font-size: 14px;">...</b>
     <div style="opacity: 0.6; margin-top: 4px; font-size: 12px;">Rol: <b id="userRoleDisplay">...</b></div>
-    <div class="logout-btn" id="btnLogout">Cerrar sesión</div>
-    <div style="margin-top:10px;"><a href="#" onclick="document.getElementById('privacyOverlay').classList.add('open')" style="color:var(--text-muted); font-size:11px; text-decoration:underline;">Política de Privacidad</a></div>
+    <div class="logout-btn" id="btnLogout">Deconectare</div>
+    <div style="margin-top:10px;"><a href="#" onclick="document.getElementById('privacyOverlay').classList.add('open')" style="color:var(--text-muted); font-size:11px; text-decoration:underline;">Politica de Confidențialitate</a></div>
   </div>
 </aside>
 
 <main>
   <header>
-    <h2 class="page-title" id="pageTitle">Pedidos Activos</h2>
+    <h2 class="page-title" id="pageTitle">Comenzi Active</h2>
     <div class="header-actions">
-        <button id="btnToggleSound" class="btn-sound-toggle">🔇 Sonido: OFF</button>
-        <input type="text" id="tableFilterInputDesc" class="table-filter" placeholder="🔍 Buscar Mesa / Takeaway...">
+        <button id="btnToggleSound" class="btn-sound-toggle">🔇 Sunet: OPRIT</button>
+        <input type="text" id="tableFilterInputDesc" class="table-filter" placeholder="🔍 Caută Masă / Pachet...">
     </div>
     
     <div class="mobile-brand-area">
         <span class="mobile-brand">🔥 Á Libretto</span>
         <span class="mobile-user" id="mobileUserDisplay">...</span>
     </div>
-    <button class="mobile-logout" id="btnMobileLogout">Salir</button>
+    <button class="mobile-logout" id="btnMobileLogout">Ieșire</button>
   </header>
 
   <div id="paymentAlertBanner" class="payment-alert-banner" style="display:none;">
-      💳 <span id="paymentAlertCount">0</span> mesa(s) quieren pagar — toca para ver
+      💳 <span id="paymentAlertCount">0</span> masă(e) vor să plătească — apasă pentru detalii
   </div>
   
   <div class="mobile-search-container" id="mobileSearchWrap">
-      <button id="btnToggleSoundMobile" class="btn-sound-toggle" style="width: 100%; margin-bottom: 10px;">🔇 Sonido: OFF</button>
-      <input type="text" id="tableFilterInputMob" class="table-filter" placeholder="🔍 Buscar Mesa / Takeaway...">
+      <button id="btnToggleSoundMobile" class="btn-sound-toggle" style="width: 100%; margin-bottom: 10px;">🔇 Sunet: OPRIT</button>
+      <input type="text" id="tableFilterInputMob" class="table-filter" placeholder="🔍 Caută Masă / Pachet...">
   </div>
   
   <div class="content-area">
@@ -350,13 +350,13 @@
     <div id="mapView" style="display:none;">
        <div class="dash-panel" style="display:flex; justify-content:space-between; align-items:center; flex-wrap: wrap; gap:16px;">
           <div>
-            <h3>🗺️ Plano de la Sala</h3>
-            <p style="color:var(--text-muted); font-size:13px; line-height: 1.5;">Toca una mesa ocupada para ver el pedido o liberarla. <span id="salaFullMsg" style="display:none; color:var(--danger); font-weight:700;">· SALA COMPLETA</span></p>
+            <h3>🗺️ Harta Sălii</h3>
+            <p style="color:var(--text-muted); font-size:13px; line-height: 1.5;">Atinge o masă ocupată pentru a vedea comanda sau a o elibera. <span id="salaFullMsg" style="display:none; color:var(--danger); font-weight:700;">· SALĂ PLINĂ</span></p>
           </div>
           <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
-             <button id="btnAddZone" class="btn-action" style="border:1px solid var(--border); display:none; font-size:13px; padding: 10px 14px;">➕ Nueva Zona</button>
-             <button id="btnDeleteZone" class="btn-action" style="border:1px solid var(--danger); color:var(--danger); background:transparent; display:none; font-size:13px; padding: 10px 14px;">🗑️ Eliminar Zona</button>
-             <button id="btnEditMap" class="btn-action" style="border:1px solid var(--border); display:none; font-size:13px; padding: 10px 14px;">✏️ Editar Mesas</button>
+             <button id="btnAddZone" class="btn-action" style="border:1px solid var(--border); display:none; font-size:13px; padding: 10px 14px;">➕ Zonă Nouă</button>
+             <button id="btnDeleteZone" class="btn-action" style="border:1px solid var(--danger); color:var(--danger); background:transparent; display:none; font-size:13px; padding: 10px 14px;">🗑️ Șterge Zona</button>
+             <button id="btnEditMap" class="btn-action" style="border:1px solid var(--border); display:none; font-size:13px; padding: 10px 14px;">✏️ Editează Mese</button>
           </div>
        </div>
        
@@ -364,82 +364,82 @@
        <div class="dash-panel">
          <div class="tables-grid" id="tablesGrid"></div>
          <div class="sala-legend">
-            <span><i style="background:var(--bg); border:2px solid var(--border);"></i> Libre</span>
-            <span><i style="background:rgba(245,158,11,0.4); border:2px solid var(--warning);"></i> Ocupada</span>
-            <span><i style="background:rgba(239,68,68,0.4); border:2px solid var(--danger);"></i> Cuenta CONFIRMADA por el camarero</span>
-            <span><i style="background:rgba(168,85,247,0.4); border:2px solid var(--purple);"></i> Ocupada desde hace muchísimo tiempo (+100 min)</span>
-            <span><i style="background:rgba(59,130,246,0.4); border:2px solid var(--blue);"></i> Necesita ayuda / pidió la cuenta</span>
+            <span><i style="background:var(--bg); border:2px solid var(--border);"></i> Liberă</span>
+            <span><i style="background:rgba(245,158,11,0.4); border:2px solid var(--warning);"></i> Ocupată</span>
+            <span><i style="background:rgba(239,68,68,0.4); border:2px solid var(--danger);"></i> Notă CONFIRMATĂ de ospătar</span>
+            <span><i style="background:rgba(168,85,247,0.4); border:2px solid var(--purple);"></i> Ocupată de foarte mult timp (+100 min)</span>
+            <span><i style="background:rgba(59,130,246,0.4); border:2px solid var(--blue);"></i> Are nevoie de ajutor / a cerut nota</span>
          </div>
        </div>
     </div>
 
     <div id="stockView" style="display: none;">
       <div class="dash-panel">
-        <h3>🛑 Bloquear Productos (Sin Stock)</h3>
-        <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px; line-height: 1.5;">Desactiva los productos en el menú de los clientes si faltan ingredientes. Se actualiza al instante en sus teléfonos.</p>
-        <div class="stock-list" id="stockListContainer">Cargando...</div>
+        <h3>🛑 Blocare Produse (Fără Stoc)</h3>
+        <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px; line-height: 1.5;">Dezactivează produsele din meniul clienților dacă lipsesc ingrediente. Se actualizează instant pe telefoanele lor.</p>
+        <div class="stock-list" id="stockListContainer">Se încarcă...</div>
       </div>
     </div>
 
     <div id="adminView" style="display: none;">
       <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 16px;">
-          <div><h2 style="font-size: 24px; font-weight: 700;">Resumen Actividad</h2></div>
+          <div><h2 style="font-size: 24px; font-weight: 700;">Rezumat Activitate</h2></div>
           <div style="display: flex; gap: 10px; align-items: center;">
-              <button class="btn-action" style="background:var(--accent); color:white; font-size:13px; padding: 10px 16px;" onclick="exportCSV()">📥 Descargar Excel</button>
-              <button class="btn-action" style="background:var(--blue); color:white; font-size:13px; padding: 10px 16px;" onclick="exportLogsCSV()">📥 Descargar Logs (CSV)</button>
+              <button class="btn-action" style="background:var(--accent); color:white; font-size:13px; padding: 10px 16px;" onclick="exportCSV()">📥 Descarcă Excel</button>
+              <button class="btn-action" style="background:var(--blue); color:white; font-size:13px; padding: 10px 16px;" onclick="exportLogsCSV()">📥 Descarcă Jurnal (CSV)</button>
               <div class="time-toggle">
-                  <button class="active" id="btnStatsToday">Hoy</button>
-                  <button id="btnStatsMonth">Este mes</button>
+                  <button class="active" id="btnStatsToday">Azi</button>
+                  <button id="btnStatsMonth">Luna aceasta</button>
               </div>
           </div>
       </div>
 
       <div class="stats-grid">
-        <div class="stat-card"><div class="stat-label">Ingresos (Tickets)</div><div class="stat-val" id="statRevenue">0 €</div></div>
-        <div class="stat-card"><div class="stat-label">Pedidos servidos</div><div class="stat-val" id="statCount">0</div></div>
-        <div class="stat-card" style="border-color: rgba(245,158,11,0.3);"><div class="stat-label">⚠️ Sin Ticket</div><div class="stat-val alert" id="statPendingBon">0</div></div>
-        <div class="stat-card"><div class="stat-label">Cocina / Barra</div><div class="stat-val" id="statKitchen">0 €</div></div>
+        <div class="stat-card"><div class="stat-label">Încasări (Bonuri)</div><div class="stat-val" id="statRevenue">0 €</div></div>
+        <div class="stat-card"><div class="stat-label">Comenzi servite</div><div class="stat-val" id="statCount">0</div></div>
+        <div class="stat-card" style="border-color: rgba(245,158,11,0.3);"><div class="stat-label">⚠️ Fără Bon</div><div class="stat-val alert" id="statPendingBon">0</div></div>
+        <div class="stat-card"><div class="stat-label">Bucătărie / Bar</div><div class="stat-val" id="statKitchen">0 €</div></div>
       </div>
 
       <div class="dash-panel" id="chartPanel">
-         <h3 id="chartTitle">📈 Evolución de Ingresos</h3>
+         <h3 id="chartTitle">📈 Evoluția Încasărilor</h3>
          <div class="chart-container" id="revenueChartBars"></div>
       </div>
 
       <div class="dash-panel">
-         <h3>🔥 Heatmap de Horas Punta</h3>
-         <p style="color:var(--text-muted); font-size:13px; margin-bottom:6px;">Número de pedidos por día de la semana y hora, de los últimos 60 días. Cuanto más oscuro, más movimiento — úsalo para decidir cuándo poner más personal.</p>
+         <h3>🔥 Heatmap Ore de Vârf</h3>
+         <p style="color:var(--text-muted); font-size:13px; margin-bottom:6px;">Numărul de comenzi pe zi și oră din ultimele 60 de zile. Cu cât e mai închis, cu atât e mai aglomerat — folosește graficul pentru a decide când e nevoie de mai mult personal.</p>
          <div class="heatmap-wrap">
-            <div id="heatmapContainer">Cargando...</div>
+            <div id="heatmapContainer">Se încarcă...</div>
          </div>
          <div class="heatmap-legend">
-            <span>Menos</span>
+            <span>Mai puțin</span>
             <div class="hl-scale" id="heatmapScale"></div>
-            <span>Más</span>
+            <span>Mai mult</span>
          </div>
          <div class="heatmap-best" id="heatmapBest"></div>
       </div>
 
       <div class="dash-panel" style="border-color: var(--warning);">
-         <h3 style="color: var(--warning);">🔥 Horas Punta (Aviso Cocina)</h3>
+         <h3 style="color: var(--warning);">🔥 Ore de Vârf (Avertisment Bucătărie)</h3>
          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
-            <p style="color:var(--text-muted); font-size:13px; max-width:80%;">Actívalo para mostrar un aviso rojo a los clientes indicando que la cocina está saturada y los tiempos de espera son mayores de lo habitual.</p>
+            <p style="color:var(--text-muted); font-size:13px; max-width:80%;">Activează pentru a le arăta clienților un avertisment roșu care indică faptul că bucătăria este aglomerată și timpii de așteptare sunt mai mari decât de obicei.</p>
             <label class="switch"><input type="checkbox" id="toggleBusyMode"><span class="slider"></span></label>
          </div>
       </div>
       
       <div class="dash-panel">
-          <h3>🏆 Top 5 Productos</h3>
+          <h3>🏆 Top 5 Produse</h3>
           <ul class="top-list" id="topProductsList"></ul>
       </div>
 
       <div class="dash-panel">
-          <h3>👤 Reporte por Empleado</h3>
-          <p style="color:var(--text-muted); font-size:13px; margin-bottom:16px;">Ingresos generados, pedidos gestionados y tasa de cancelación por cada miembro del staff, en el periodo seleccionado (Hoy / Este mes).</p>
+          <h3>👤 Raport per Angajat</h3>
+          <p style="color:var(--text-muted); font-size:13px; margin-bottom:16px;">Încasări generate, comenzi gestionate și rata de anulare pentru fiecare membru al personalului, în perioada selectată (Azi / Luna aceasta).</p>
           <div class="table-responsive">
             <table class="staff-table">
               <thead>
-                <tr><th>Empleado</th><th>Pedidos</th><th>Ingresos</th><th>Cancelados</th><th>% Cancelación</th></tr>
+                <tr><th>Angajat</th><th>Comenzi</th><th>Încasări</th><th>Anulate</th><th>% Anulare</th></tr>
               </thead>
               <tbody id="staffReportList"></tbody>
             </table>
@@ -447,69 +447,69 @@
       </div>
 
       <div class="dash-panel" style="border-color: var(--danger);">
-          <h3 style="color: var(--danger);">🚩 Cancelaciones sospechosas (después de "Listo")</h3>
-          <p style="color:var(--text-muted); font-size:13px; margin-bottom:16px;">Pedidos que salieron de cocina/barra como "Listo" y luego fueron cancelados. Es el patrón más común de fraude (producto entregado, comanda anulada). Se muestra quién hizo la cancelación.</p>
-          <div id="fraudList"><span style="color:var(--text-muted); font-size:13.5px;">Analizando historial...</span></div>
+          <h3 style="color: var(--danger);">🚩 Anulări suspecte (după "Gata")</h3>
+          <p style="color:var(--text-muted); font-size:13px; margin-bottom:16px;">Comenzi care au ieșit din bucătărie/bar ca "Gata" și apoi au fost anulate. Acesta este cel mai comun tipar de fraudă (produs livrat, comandă anulată). Se afișează cine a făcut anularea.</p>
+          <div id="fraudList"><span style="color:var(--text-muted); font-size:13.5px;">Se analizează istoricul...</span></div>
       </div>
 
       <div class="dash-panel" id="feedbackPanel" style="display:none;">
-          <h3 style="color: var(--blue);">💬 Opiniones Internas (Mejora)</h3>
-          <p style="color:var(--text-muted); font-size:13px; margin-bottom:16px;">Feedbacks privados enviados por clientes (1 a 4 estrellas).</p>
+          <h3 style="color: var(--blue);">💬 Feedback Intern (Îmbunătățiri)</h3>
+          <p style="color:var(--text-muted); font-size:13px; margin-bottom:16px;">Feedback-uri private trimise de clienți (1 la 4 stele).</p>
           <ul class="top-list" id="feedbackList"></ul>
       </div>
 
       <div class="dash-panel">
-          <h3>🚨 Tickets No Confirmados (Por Staff)</h3>
-          <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 16px;">Pedidos finalizados sin el ticket sacado, agrupados por el usuario responsable.</p>
+          <h3>🚨 Bonuri Neconfirmate (Per Staff)</h3>
+          <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 16px;">Comenzi finalizate fără bon scos, grupate după utilizatorul responsabil.</p>
           <ul class="top-list" id="pendingByStaffList"></ul>
       </div>
 
       <div class="dash-panel">
-          <h3>🧑‍🤝‍🧑 Personal (Roles)</h3>
-          <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 16px;">Roles del staff, tal como están guardados en la base de datos (tabla <code>staff_roles</code>). Los permisos reales (RLS) se basan en esta tabla, no en el email. Para dar de alta a alguien nuevo: crea su cuenta en Supabase → Authentication, y añade su fila aquí desde el SQL Editor.</p>
+          <h3>🧑‍🤝‍🧑 Personal (Roluri)</h3>
+          <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 16px;">Rolurile personalului, exact cum sunt salvate în baza de date (tabelul <code>staff_roles</code>). Permisiunile reale (RLS) se bazează pe acest tabel, nu pe email. Pentru a adăuga pe cineva nou: creează-i contul în Supabase → Authentication, apoi adaugă-i rândul aici din SQL Editor.</p>
           <div class="table-responsive">
             <table class="staff-table">
-              <thead><tr><th>Email</th><th>Rol</th><th>Desde</th></tr></thead>
-              <tbody id="staffRolesList"><tr><td colspan="3" style="color:var(--text-muted);">Cargando...</td></tr></tbody>
+              <thead><tr><th>Email</th><th>Rol</th><th>Din</th></tr></thead>
+              <tbody id="staffRolesList"><tr><td colspan="3" style="color:var(--text-muted);">Se încarcă...</td></tr></tbody>
             </table>
           </div>
       </div>
 
       <div class="dash-panel" style="border-color: var(--danger);">
-          <h3 style="color: var(--danger);">🗑️ Zona de Riesgo</h3>
-          <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 16px;">Elimina permanentemente todo el historial de comandas finalizadas y canceladas de Supabase. Esta acción no se puede deshacer. Los pedidos activos no se ven afectados.</p>
-          <button id="btnWipeHistory" class="btn-action" style="display:none; background:rgba(239,68,68,0.15); color:var(--danger); border:1px solid rgba(239,68,68,0.4); width:100%;">🗑️ Eliminar todo el historial</button>
+          <h3 style="color: var(--danger);">🗑️ Zonă de Risc</h3>
+          <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 16px;">Șterge definitiv tot istoricul de comenzi finalizate și anulate din Supabase. Această acțiune nu poate fi anulată. Comenzile active nu sunt afectate.</p>
+          <button id="btnWipeHistory" class="btn-action" style="display:none; background:rgba(239,68,68,0.15); color:var(--danger); border:1px solid rgba(239,68,68,0.4); width:100%;">🗑️ Șterge tot istoricul</button>
       </div>
     </div>
 
     <div id="meniuView" style="display: none;">
       <div class="dash-panel">
-        <h3>📋 Enviar Pedido Rápido</h3>
-        <input type="text" id="meniuTableInput" class="table-filter" style="width:100%; margin-bottom:16px;" placeholder="Número de mesa (ej: 4)">
-        <input type="text" id="meniuNoteInput" class="table-filter" style="width:100%; margin-bottom:16px;" placeholder="Nota para cocina / barra (ej: sin cebolla)...">
-        <input type="text" id="meniuSearchInput" class="table-filter" style="width:100%; margin-bottom:16px;" placeholder="🔍 Buscar producto...">
+        <h3>📋 Trimite Comandă Rapidă</h3>
+        <input type="text" id="meniuTableInput" class="table-filter" style="width:100%; margin-bottom:16px;" placeholder="Număr masă (ex: 4)">
+        <input type="text" id="meniuNoteInput" class="table-filter" style="width:100%; margin-bottom:16px;" placeholder="Notă pentru bucătărie / bar (ex: fără ceapă)...">
+        <input type="text" id="meniuSearchInput" class="table-filter" style="width:100%; margin-bottom:16px;" placeholder="🔍 Caută produs...">
 
-        <div class="stock-list" id="meniuListContainer">Cargando...</div>
+        <div class="stock-list" id="meniuListContainer">Se încarcă...</div>
         <div style="margin-top:20px; display:flex; justify-content:space-between; align-items:center; gap:12px;">
           <div style="font-family:'Space Mono',monospace; font-weight:700;">Total: <span id="meniuTotal">0.00</span> €</div>
-          <button class="btn-action btn-done" style="flex:0 0 auto; padding:14px 26px;" id="btnMeniuTrimite">Enviar Pedido</button>
+          <button class="btn-action btn-done" style="flex:0 0 auto; padding:14px 26px;" id="btnMeniuTrimite">Trimite Comanda</button>
         </div>
       </div>
     </div>
 
     <div id="jurnalView" style="display: none;">
       <div class="dash-panel">
-        <h3>🕵️ Log de Actividad (Auditoría)</h3>
-        <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 16px;">Cada acción se guarda con la hora exacta. Se conserva 30 días.</p>
+        <h3>🕵️ Jurnal de Activitate (Audit)</h3>
+        <p style="color: var(--text-muted); font-size: 13px; margin-bottom: 16px;">Fiecare acțiune este salvată cu ora exactă. Se păstrează 30 de zile.</p>
         
         <div class="table-responsive">
           <table class="table-logs">
             <thead>
               <tr>
-                <th>Fecha / Hora</th>
+                <th>Dată / Oră</th>
                 <th>Personal</th>
-                <th>Acción</th>
-                <th>Detalles (Mesa/Motivo)</th>
+                <th>Acțiune</th>
+                <th>Detalii (Masă/Motiv)</th>
               </tr>
             </thead>
             <tbody id="jurnalList"></tbody>
@@ -523,18 +523,18 @@
 <div class="modal-overlay" id="privacyOverlay">
   <div class="modal" style="text-align: left;">
     <button class="modal-close" onclick="document.getElementById('privacyOverlay').classList.remove('open')">&times;</button>
-    <h2>Política de Privacidad Interna</h2>
-    <p style="font-size:14px; color: var(--text-muted); margin-top:10px;">El sistema Á Libretto gestiona datos operativos. Los nombres y números de teléfono recopilados para pedidos "Takeaway" se eliminan automáticamente de nuestra base de datos (Supabase) después de 48 horas.</p>
+    <h2>Politica de Confidențialitate Internă</h2>
+    <p style="font-size:14px; color: var(--text-muted); margin-top:10px;">Sistemul Á Libretto gestionează date operaționale. Numele și numerele de telefon colectate pentru comenzile "Pachet" sunt șterse automat din baza noastră de date (Supabase) după 48 de ore.</p>
   </div>
 </div>
 
 <div class="modal-overlay" id="tableActionOverlay">
   <div class="modal" style="max-width:360px; text-align:center;">
     <button class="modal-close" onclick="document.getElementById('tableActionOverlay').classList.remove('open')">&times;</button>
-    <h2 id="taTitle" style="margin-bottom:6px;">Mesa</h2>
+    <h2 id="taTitle" style="margin-bottom:6px;">Masă</h2>
     <p id="taStatus" style="color:var(--text-muted); margin-bottom:20px; font-size:14px;">—</p>
-    <button class="btn-action btn-done" style="width:100%; margin-bottom:10px;" id="taViewOrders">👀 Ver pedidos</button>
-    <button class="btn-action" style="width:100%; background:rgba(16,185,129,0.15); color:var(--success); border:1px solid rgba(16,185,129,0.3);" id="taFreeTable">🔓 Liberar mesa ahora</button>
+    <button class="btn-action btn-done" style="width:100%; margin-bottom:10px;" id="taViewOrders">👀 Vezi comenzi</button>
+    <button class="btn-action" style="width:100%; background:rgba(16,185,129,0.15); color:var(--success); border:1px solid rgba(16,185,129,0.3);" id="taFreeTable">🔓 Eliberează masa acum</button>
   </div>
 </div>
 
@@ -544,7 +544,6 @@
   const SUPABASE_ANON_KEY = 'sb_publishable_N6gG_s8Pmpc-w8m04Es66Q_dcqhEXRA';
   const _supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-  // Helper de protecție XSS - previne executarea de cod malițios trimis din exterior
   function escapeHTML(str) {
       if (str === null || str === undefined) return '';
       return String(str)
@@ -555,8 +554,9 @@
         .replace(/'/g, '&#039;');
   }
 
+  // NU SCHIMBA Numele rolurilor de aici ('director', 'bar', etc) deoarece backend-ul le așteaptă așa
   const VALID_ROLES = ['director', 'bar', 'bucatarie', 'ospatar'];
-  const ROLE_LABELS = { director: 'Director / Jefe', bar: 'Barra', bucatarie: 'Cocina', ospatar: 'Camarero/a' };
+  const ROLE_LABELS = { director: 'Manager / Director', bar: 'Bar', bucatarie: 'Bucătărie', ospatar: 'Ospătar' };
 
   let userRole = null;
   let currentTab = 'active'; 
@@ -570,16 +570,16 @@
   
   let soundEnabled = false;
 
-  let salaConfig = { zones: [ { nume: "Salón Principal", mese: [] } ] };
-  let currentZone = "Salón Principal";
+  let salaConfig = { zones: [ { nume: "Salon Principal", mese: [] } ] };
+  let currentZone = "Salon Principal";
   let isEditingMap = false;
   let freedTables = {}; 
   let autoFreedGuard = new Set(); 
 
   const AUTO_FREE_MINUTES = 15; 
   const PURPLE_THRESHOLD_MINUTES = 100;
-  const PAYMENT_ALERT_REGEX = /Efectivo|Tarjeta|Cash|Card|Esp[eè]ces|Carte/i;
-  const HELP_ALERT_REGEX = /Ayuda|Help|Aide/i;
+  const PAYMENT_ALERT_REGEX = /Efectivo|Tarjeta|Cash|Card|Esp[eè]ces|Carte|Plata/i;
+  const HELP_ALERT_REGEX = /Ayuda|Help|Aide|Ajutor/i;
 
   const searchDesc = document.getElementById('tableFilterInputDesc');
   const searchMob = document.getElementById('tableFilterInputMob');
@@ -597,7 +597,7 @@
           const btnMob = document.getElementById('btnToggleSoundMobile');
           
           if (soundEnabled) {
-              const htmlStr = '🔊 Sonido: ON';
+              const htmlStr = '🔊 Sunet: PORNIT';
               btnDesc.innerHTML = htmlStr; btnMob.innerHTML = htmlStr;
               btnDesc.classList.add('on'); btnMob.classList.add('on');
               if ('speechSynthesis' in window) {
@@ -605,7 +605,7 @@
                   window.speechSynthesis.speak(unlockMsg);
               }
           } else {
-              const htmlStr = '🔇 Sonido: OFF';
+              const htmlStr = '🔇 Sunet: OPRIT';
               btnDesc.innerHTML = htmlStr; btnMob.innerHTML = htmlStr;
               btnDesc.classList.remove('on'); btnMob.classList.remove('on');
           }
@@ -618,7 +618,7 @@
   async function logActivity(actiune, comanda_id, detalii) {
     try {
       await _supabase.from('jurnal_activitate').insert([{
-        utilizator: currentUserEmail || 'desconocido',
+        utilizator: currentUserEmail || 'necunoscut',
         actiune: actiune,
         comanda_id: comanda_id || null,
         detalii: detalii || {}
@@ -646,11 +646,11 @@
   }
 
   const translationCache = {};
-  async function translateToSpanish(text) {
+  async function translateToRomanian(text) {
       const key = text.trim().toLowerCase();
       if (translationCache[key]) return translationCache[key];
       try {
-          const resp = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=es&dt=t&q=${encodeURIComponent(text)}`);
+          const resp = await fetch(`https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=ro&dt=t&q=${encodeURIComponent(text)}`);
           const data = await resp.json();
           if (data && Array.isArray(data[0])) {
               const translated = data[0].map(chunk => chunk[0]).join('');
@@ -669,12 +669,12 @@
   function getSpokenLocationLabel(order) {
       const takeaway = isTakeawayMesa(order.mesa);
       if (!takeaway) {
-          return 'mesa ' + String(order.mesa).replace('#', '');
+          return 'masa ' + String(order.mesa).replace('#', '');
       }
       if (userRole === 'bucatarie') {
-          return `pedido para llevar número ${order.id}`;
+          return `comandă la pachet numărul ${order.id}`;
       }
-      return 'pedido para llevar: ' + String(order.mesa).replace('Tk:', '').trim();
+      return 'comandă la pachet: ' + String(order.mesa).replace('Tk:', '').trim();
   }
 
   async function speakOrderNotes(order) {
@@ -686,10 +686,10 @@
           for (const n of notes) {
               const rawNote = n.nume.replace('📝', '').trim();
               if (!rawNote) continue;
-              const translated = await translateToSpanish(rawNote);
-              const text = `Atención, nota en ${locationLabel}: ${translated}`;
+              const translated = await translateToRomanian(rawNote);
+              const text = `Atenție, notă la ${locationLabel}: ${translated}`;
               const utterance = new SpeechSynthesisUtterance(text);
-              utterance.lang = 'es-ES';
+              utterance.lang = 'ro-RO';
               utterance.rate = 1.0;
               window.speechSynthesis.speak(utterance);
           }
@@ -700,9 +700,9 @@
     try {
       if (userRole === 'ospatar') {
           if (navigator.vibrate) navigator.vibrate([400, 200, 400, 200, 800]); 
-          const title = '🔔 Alerta en mesa / Pedido Listo';
+          const title = '🔔 Alertă la masă / Comandă Gata';
           const validItems = order.produse.filter(p => p.cantitate > 0);
-          const body = `Mesa ${order.mesa}: ` + validItems.map(p => p.nume).join(', ');
+          const body = `Masa ${order.mesa}: ` + validItems.map(p => p.nume).join(', ');
           showBackgroundAlert(title, body);
           return; 
       }
@@ -710,14 +710,14 @@
       if (soundEnabled) {
           if (userRole === 'bucatarie' && 'speechSynthesis' in window) {
               const validItems = order.produse.filter(p => p.cantitate > 0);
-              const itemNames = validItems.map(p => `${p.cantitate} de ${p.nume}`).join(', ');
+              const itemNames = validItems.map(p => `${p.cantitate} ${p.nume}`).join(', ');
               const takeaway = isTakeawayMesa(order.mesa);
 
               const text = takeaway
-                  ? `Nuevo pedido para llevar, número ${order.id}. ${itemNames}`
-                  : `Nuevo pedido, mesa ${String(order.mesa).replace('#', '')}. ${itemNames}`;
+                  ? `Comandă nouă la pachet, numărul ${order.id}. ${itemNames}`
+                  : `Comandă nouă, masa ${String(order.mesa).replace('#', '')}. ${itemNames}`;
               const utterance = new SpeechSynthesisUtterance(text);
-              utterance.lang = 'es-ES'; 
+              utterance.lang = 'ro-RO'; 
               utterance.rate = 1.0; 
               
               window.speechSynthesis.cancel(); 
@@ -745,9 +745,9 @@
       }
       
       if (document.hidden || document.visibilityState !== 'visible') {
-          const title = '🛎️ Nuevo pedido';
+          const title = '🛎️ Comandă nouă';
           const validItems = order.produse.filter(p => p.cantitate > 0);
-          const body = `Mesa ${order.mesa}: ` + validItems.map(p => p.nume).join(', ');
+          const body = `Masa ${order.mesa}: ` + validItems.map(p => p.nume).join(', ');
           showBackgroundAlert(title, body);
       }
     } catch(e) { console.error('Alert error:', e); }
@@ -773,7 +773,7 @@
         const ok = await setupUserEnvironment(data.user);
         if (ok) document.getElementById('authOverlay').style.display = 'none';
     } else {
-        errEl.textContent = '¡Fallo en la autenticación! Revisa email/contraseña.';
+        errEl.textContent = 'Autentificare eșuată! Verifică emailul și parola.';
         errEl.style.display = 'block';
     }
   });
@@ -782,9 +782,6 @@
   document.getElementById('btnLogout').addEventListener('click', logoutFn);
   document.getElementById('btnMobileLogout').addEventListener('click', logoutFn);
 
-  // Resuelve el rol REAL del usuario desde la tabla staff_roles (fuente de verdad para RLS),
-  // no desde el email. Si el usuario no tiene fila en staff_roles, no puede operar: se le
-  // avisa y se cierra sesión, ya que sin rol las políticas RLS bloquean cualquier escritura.
   async function setupUserEnvironment(user) {
     currentUserEmail = user.email;
     currentUserId = user.id;
@@ -799,7 +796,7 @@
 
     if (roleErr || !roleRow || !VALID_ROLES.includes(roleRow.role)) {
         const errEl = document.getElementById('authErrorText');
-        errEl.textContent = 'Tu cuenta no tiene un rol asignado en staff_roles. Pide al director que te añada.';
+        errEl.textContent = 'Contul tău nu are un rol asignat în baza de date. Cere-i managerului să te adauge.';
         errEl.style.display = 'block';
         await _supabase.auth.signOut();
         return false;
@@ -879,39 +876,39 @@
 
     if(tab === 'active') {
         document.getElementById('navActive').classList.add('active');
-        document.getElementById('pageTitle').textContent = 'Pedidos Activos';
+        document.getElementById('pageTitle').textContent = 'Comenzi Active';
         document.getElementById('ordersView').style.display = 'grid'; 
         renderOrders();
     } else if(tab === 'history') {
         document.getElementById('navHistory').classList.add('active');
-        document.getElementById('pageTitle').textContent = userRole === 'ospatar' ? 'Mis Pedidos' : 'Historial & Tickets';
+        document.getElementById('pageTitle').textContent = userRole === 'ospatar' ? 'Comenzile Mele' : 'Istoric & Bonuri';
         document.getElementById('ordersView').style.display = 'grid'; 
         renderOrders();
     } else if(tab === 'stock') {
         document.getElementById('navStock').classList.add('active');
-        document.getElementById('pageTitle').textContent = 'Gestión de Stock';
+        document.getElementById('pageTitle').textContent = 'Gestiune Stoc';
         document.getElementById('stockView').style.display = 'block';
         loadFullMenuForStock();
     } else if(tab === 'admin') {
         document.getElementById('navAdmin').classList.add('active');
-        document.getElementById('pageTitle').textContent = 'Panel de Jefe';
+        document.getElementById('pageTitle').textContent = 'Panou Manager';
         document.getElementById('adminView').style.display = 'block';
         calculateDirectorStats();
         renderHeatmap();
         loadStaffRolesList();
     } else if(tab === 'meniu') {
         document.getElementById('navMeniu').classList.add('active');
-        document.getElementById('pageTitle').textContent = 'Menú - Pedido Rápido';
+        document.getElementById('pageTitle').textContent = 'Meniu - Comandă Rapidă';
         document.getElementById('meniuView').style.display = 'block';
         loadMeniuForOspatar();
     } else if(tab === 'jurnal') {
         document.getElementById('navJurnal').classList.add('active');
-        document.getElementById('pageTitle').textContent = 'Log de Actividad';
+        document.getElementById('pageTitle').textContent = 'Jurnal de Activitate';
         document.getElementById('jurnalView').style.display = 'block';
         loadJurnal();
     } else if(tab === 'map') {
         document.getElementById('navMap').classList.add('active');
-        document.getElementById('pageTitle').textContent = 'Plano de la Sala';
+        document.getElementById('pageTitle').textContent = 'Harta Sălii';
         document.getElementById('mapView').style.display = 'block';
         renderZoneTabs();
         renderTablesGrid();
@@ -922,13 +919,13 @@
       const tbody = document.getElementById('staffRolesList');
       if (!tbody) return;
       const { data, error } = await _supabase.from('staff_roles').select('*').order('created_at', { ascending: true });
-      if (error || !data) { tbody.innerHTML = '<tr><td colspan="3" style="color:var(--danger);">Error al cargar.</td></tr>'; return; }
-      if (data.length === 0) { tbody.innerHTML = '<tr><td colspan="3" style="color:var(--text-muted);">Sin personal registrado aún.</td></tr>'; return; }
+      if (error || !data) { tbody.innerHTML = '<tr><td colspan="3" style="color:var(--danger);">Eroare la încărcare.</td></tr>'; return; }
+      if (data.length === 0) { tbody.innerHTML = '<tr><td colspan="3" style="color:var(--text-muted);">Niciun personal înregistrat.</td></tr>'; return; }
       tbody.innerHTML = data.map(r => `
         <tr>
           <td class="name-col">${escapeHTML(r.email)}</td>
           <td>${escapeHTML(ROLE_LABELS[r.role] || r.role)}</td>
-          <td>${new Date(r.created_at).toLocaleDateString('es-ES')}</td>
+          <td>${new Date(r.created_at).toLocaleDateString('ro-RO')}</td>
         </tr>
       `).join('');
   }
@@ -964,7 +961,7 @@
   function getZoneObj(nume) { return salaConfig.zones.find(z => z.nume === nume); }
 
   document.getElementById('btnAddZone').addEventListener('click', () => {
-      let zName = prompt('Nombre de la nueva zona (ej: Terraza, Planta 1):');
+      let zName = prompt('Numele noii zone (ex: Terasă, Etaj 1):');
       if(zName && zName.trim() !== '') {
           zName = zName.trim();
           if(!getZoneObj(zName)) {
@@ -977,8 +974,8 @@
   });
 
   document.getElementById('btnDeleteZone').addEventListener('click', () => {
-      if(salaConfig.zones.length <= 1) { alert('Debe quedar al menos una zona.'); return; }
-      if(!confirm(`¿Eliminar la zona "${currentZone}" y todas sus mesas? Esta acción no se puede deshacer.`)) return;
+      if(salaConfig.zones.length <= 1) { alert('Trebuie să rămână cel puțin o zonă.'); return; }
+      if(!confirm(`Ștergi zona "${currentZone}" și toate mesele ei? Această acțiune este ireversibilă.`)) return;
       salaConfig.zones = salaConfig.zones.filter(z => z.nume !== currentZone);
       currentZone = salaConfig.zones[0].nume;
       saveTablesConfig();
@@ -989,12 +986,12 @@
       isEditingMap = !isEditingMap;
       const btn = document.getElementById('btnEditMap');
       if(isEditingMap) {
-          btn.innerHTML = '💾 Guardar';
+          btn.innerHTML = '💾 Salvează';
           btn.style.background = 'var(--accent)';
           btn.style.color = 'white';
           btn.style.borderColor = 'var(--accent)';
       } else {
-          btn.innerHTML = '✏️ Editar Mesas';
+          btn.innerHTML = '✏️ Editează Mese';
           btn.style.background = 'transparent';
           btn.style.color = 'var(--text)';
           btn.style.borderColor = 'var(--border)';
@@ -1021,7 +1018,7 @@
 
       let ordersForTable = allOrders.filter(o => String(o.mesa) === strNr && o.status !== 'anulata' && new Date(o.created_at).getTime() > lastFreed);
 
-      if(ordersForTable.length === 0) return { status:'free', label:'Libre' };
+      if(ordersForTable.length === 0) return { status:'free', label:'Liberă' };
 
       let lastOrderTime = Math.max(...ordersForTable.map(o => new Date(o.created_at).getTime()));
 
@@ -1029,22 +1026,22 @@
       let hasPendingPaymentAlert = ordersForTable.some(o => o.status === 'noua' && o.produse.some(p => p.nume.includes('ALERTĂ') && PAYMENT_ALERT_REGEX.test(p.nume)));
 
       if(hasHelpAlert || hasPendingPaymentAlert) {
-          if(hasHelpAlert && hasPendingPaymentAlert) return { status:'blue', label:'Ayuda + pidió la cuenta (sin confirmar)' };
-          if(hasHelpAlert) return { status:'blue', label:'Necesita ayuda' };
-          return { status:'blue', label:'Pidió la cuenta (sin confirmar)' };
+          if(hasHelpAlert && hasPendingPaymentAlert) return { status:'blue', label:'Ajutor + cere nota (neconfirmat)' };
+          if(hasHelpAlert) return { status:'blue', label:'Are nevoie de ajutor' };
+          return { status:'blue', label:'A cerut nota (neconfirmat)' };
       }
 
       let confirmedPaymentOrders = ordersForTable.filter(o => o.status === 'finalizata' && o.confirmada_la && o.produse.some(p => p.nume.includes('ALERTĂ') && PAYMENT_ALERT_REGEX.test(p.nume)));
       if(confirmedPaymentOrders.length > 0) {
           let lastConfirmTime = Math.max(...confirmedPaymentOrders.map(o => new Date(o.confirmada_la).getTime()));
           let remainingMin = Math.max(0, Math.ceil(AUTO_FREE_MINUTES - (Date.now() - lastConfirmTime) / 60000));
-          return { status:'red', label: remainingMin > 0 ? `Cuenta confirmada · se libera en ${remainingMin} min` : 'Cuenta confirmada · liberando...' };
+          return { status:'red', label: remainingMin > 0 ? `Notă confirmată · se eliberează în ${remainingMin} min` : 'Notă confirmată · se eliberează...' };
       }
 
       let elapsedMin = (Date.now() - lastOrderTime) / 60000;
-      if(elapsedMin >= PURPLE_THRESHOLD_MINUTES) return { status:'purple', label:`Ocupada desde hace muchísimo tiempo (+${PURPLE_THRESHOLD_MINUTES} min)` };
+      if(elapsedMin >= PURPLE_THRESHOLD_MINUTES) return { status:'purple', label:`Ocupată de foarte mult timp (+${PURPLE_THRESHOLD_MINUTES} min)` };
       let isOld = elapsedMin > 30;
-      return isOld ? { status:'red', label:'Ocupada (sentada hace rato)' } : { status:'yellow', label:'Ocupada' };
+      return isOld ? { status:'red', label:'Ocupată (de ceva timp)' } : { status:'yellow', label:'Ocupată' };
   }
 
   async function checkAutoFreeTables() {
@@ -1116,7 +1113,7 @@
       let freeCount = allTables.filter(nr => getTableStatus(nr).status === 'free').length;
       badge.style.display = 'inline-block';
       badge.classList.remove('badge-full', 'badge-ok');
-      if(freeCount === 0) { badge.textContent = 'LLENO'; badge.classList.add('badge-full'); }
+      if(freeCount === 0) { badge.textContent = 'PLIN'; badge.classList.add('badge-full'); }
       else { badge.textContent = `${freeCount}/${allTables.length}`; badge.classList.add('badge-ok'); }
 
       const fullMsg = document.getElementById('salaFullMsg');
@@ -1134,20 +1131,20 @@
           let card = document.createElement('div');
           card.className = `table-card status-${st.status === 'free' ? 'free' : st.status} ${isEditingMap ? 'editing-mode' : ''}`;
           card.innerHTML = `
-             ${isEditingMap ? `<span class="t-del" data-action="del">✕</span>` : ''}
-             <div class="t-num">${escapeHTML(mesa.numar)}</div>
-             <div class="t-seats">🪑 ${escapeHTML(mesa.scaune)}</div>
+              ${isEditingMap ? `<span class="t-del" data-action="del">✕</span>` : ''}
+              <div class="t-num">${escapeHTML(mesa.numar)}</div>
+              <div class="t-seats">🪑 ${escapeHTML(mesa.scaune)}</div>
           `;
           card.onclick = (e) => {
               if(isEditingMap) {
                   if(e.target.dataset.action === 'del') {
-                      if(confirm(`¿Eliminar la mesa ${mesa.numar}?`)) {
+                      if(confirm(`Ștergi masa ${mesa.numar}?`)) {
                           zone.mese = zone.mese.filter(m => m.numar !== mesa.numar);
                           renderZoneTabs(); renderTablesGrid();
                       }
                       return;
                   }
-                  let newSeats = prompt(`Plazas en la mesa ${mesa.numar}:`, mesa.scaune);
+                  let newSeats = prompt(`Locuri la masa ${mesa.numar}:`, mesa.scaune);
                   if(newSeats !== null && !isNaN(parseInt(newSeats))) {
                       mesa.scaune = parseInt(newSeats);
                       renderTablesGrid();
@@ -1164,11 +1161,11 @@
           addCard.className = 'add-table-card';
           addCard.textContent = '+';
           addCard.onclick = () => {
-              let numar = prompt('Número de la nueva mesa (ej: 12):');
+              let numar = prompt('Numărul noii mese (ex: 12):');
               if(!numar || numar.trim() === '') return;
               numar = numar.trim();
-              if(zone.mese.some(m => String(m.numar) === numar)) { alert('Ya existe una mesa con ese número.'); return; }
-              let scaune = prompt('¿Cuántas plazas / sillas tiene?', '4');
+              if(zone.mese.some(m => String(m.numar) === numar)) { alert('Există deja o masă cu acest număr.'); return; }
+              let scaune = prompt('Câte locuri / scaune are?', '4');
               scaune = parseInt(scaune) || 4;
               zone.mese.push({ numar, scaune });
               renderZoneTabs(); renderTablesGrid();
@@ -1181,7 +1178,7 @@
   }
 
   function openTableAction(tableNr, statusInfo) {
-      document.getElementById('taTitle').textContent = `Mesa ${tableNr}`;
+      document.getElementById('taTitle').textContent = `Masa ${tableNr}`;
       document.getElementById('taStatus').textContent = statusInfo.label;
       const canFree = (userRole === 'director' || userRole === 'ospatar' || userRole === 'bar');
       const freeBtn = document.getElementById('taFreeTable');
@@ -1196,7 +1193,7 @@
           switchTab('active'); renderOrders();
       };
       freeBtn.onclick = () => {
-          if(confirm(`¿Liberar la mesa ${tableNr} ahora?`)) {
+          if(confirm(`Eliberezi masa ${tableNr} acum?`)) {
               freeTableManually(tableNr);
               document.getElementById('tableActionOverlay').classList.remove('open');
           }
@@ -1220,20 +1217,20 @@
       const {data} = await _supabase.from('jurnal_activitate').select('*').eq('actiune', 'feedback_client').order('created_at', {ascending:false}).limit(50);
       const fbList = document.getElementById('feedbackList');
       if(!data || data.length === 0) { 
-          fbList.innerHTML = '<li class="top-item" style="color:var(--text-muted);">Sin opiniones negativas. ¡Genial!</li>'; 
+          fbList.innerHTML = '<li class="top-item" style="color:var(--text-muted);">Niciun feedback negativ. Super!</li>'; 
           return; 
       }
       
       fbList.innerHTML = data.map(f => {
           let ratingText = '⭐'.repeat(f.detalii ? f.detalii.rating : 0);
-          let dateStr = new Date(f.created_at).toLocaleString('es-ES', {day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit'});
+          let dateStr = new Date(f.created_at).toLocaleString('ro-RO', {day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit'});
           let msgText = f.detalii ? escapeHTML(f.detalii.mesaj) : '';
           let mesaText = f.detalii ? escapeHTML(f.detalii.mesa || 'N/A') : 'N/A';
           return `
           <li class="top-item" style="flex-direction:column; align-items:flex-start;">
              <div style="display:flex; justify-content:space-between; width:100%;">
                 <span style="color:var(--warning)">${ratingText}</span> 
-                <span style="color:var(--text-muted); font-size:12px;">Mesa: <b>${mesaText}</b></span>
+                <span style="color:var(--text-muted); font-size:12px;">Masa: <b>${mesaText}</b></span>
              </div>
              <div style="font-weight:600; margin-top:6px; font-size:14.5px;">"${msgText}"</div>
              <div style="font-size:11px; color:var(--text-muted); margin-top:4px;">${dateStr}</div>
@@ -1291,7 +1288,7 @@
         return container.innerHTML = `
         <div style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 60px 20px;">
             <div style="font-size: 40px; margin-bottom: 10px; opacity: 0.5;">🍽️</div>
-            No hay ningún pedido aquí.
+            Nu există nicio comandă aici.
         </div>`;
     }
     
@@ -1311,7 +1308,7 @@
           : `<li><span class="qty">${p.cantitate > 0 ? p.cantitate+'x' : ''}</span> <span>${safeName}</span></li>`;
       }).join('');
 
-      let timeStr = new Date(order.created_at).toLocaleTimeString('es-ES', {hour:'2-digit', minute:'2-digit'});
+      let timeStr = new Date(order.created_at).toLocaleTimeString('ro-RO', {hour:'2-digit', minute:'2-digit'});
       let staffName = escapeHTML(order.preluat_de || order.creat_de || '');
       let staffLine = staffName ? `<div style="font-size:11px; color:var(--text-muted); font-family:'Space Mono',monospace; margin-top:4px;">👤 ${staffName}</div>` : '';
 
@@ -1320,18 +1317,18 @@
       if(currentTab === 'active' && userRole !== 'director') {
           if (isAlert) {
               if (userRole === 'ospatar') {
-                  footerHtml = `<button class="btn-action btn-waiter-take" onclick="updateOrderStatus(${order.id}, 'finalizata')">🙋‍♂️ Atendido</button>`;
+                  footerHtml = `<button class="btn-action btn-waiter-take" onclick="updateOrderStatus(${order.id}, 'finalizata')">🙋‍♂️ Preluat</button>`;
               } else {
-                  footerHtml = `<div class="status-text" style="color:var(--blue); font-weight: 600;">Esperando camarero...</div>`;
+                  footerHtml = `<div class="status-text" style="color:var(--blue); font-weight: 600;">Se așteaptă ospătarul...</div>`;
               }
           } else {
               if (userRole === 'bucatarie' || userRole === 'bar') {
                   footerHtml = `
-                    <button class="btn-action btn-done" onclick="updateOrderStatus(${order.id}, 'gata')">✓ Listo</button>
+                    <button class="btn-action btn-done" onclick="updateOrderStatus(${order.id}, 'gata')">✓ Gata</button>
                     <button class="btn-action btn-cancel" onclick="updateOrderStatus(${order.id}, 'anulata')">✕</button>
                   `;
               } else if (userRole === 'ospatar' && order.status === 'gata') {
-                  footerHtml = `<button class="btn-action btn-done" style="background:var(--blue);" onclick="updateOrderStatus(${order.id}, 'finalizata')">🍽️ Servido</button>`;
+                  footerHtml = `<button class="btn-action btn-done" style="background:var(--blue);" onclick="updateOrderStatus(${order.id}, 'finalizata')">🍽️ Servit</button>`;
               }
           }
       } else if (currentTab === 'history') {
@@ -1341,7 +1338,7 @@
           if(userRole === 'bar' && !isAlert && order.status === 'finalizata') {
               let isChecked = order.bon_scos ? 'checked' : '';
               let checkedClass = order.bon_scos ? 'checked' : '';
-              let bonLabel = order.bon_scos ? '🧾 Ticket impreso' : '🧾 Confirmar Ticket';
+              let bonLabel = order.bon_scos ? '🧾 Bon scos' : '🧾 Confirmă Bonul';
               footerHtml = `
                 <label class="bon-check ${checkedClass}" onclick="event.preventDefault(); toggleBon(${order.id}, ${!order.bon_scos});">
                    <input type="checkbox" ${isChecked} tabindex="-1">
@@ -1349,7 +1346,7 @@
                 </label>
               `;
           } else if (userRole === 'director' && !isAlert && order.status === 'finalizata') {
-              footerHtml = `<div class="status-text" style="color:${order.bon_scos ? 'var(--success)' : 'var(--warning)'}; font-weight: 700;">${order.bon_scos ? '🧾 Ticket impreso' : '⚠️ Ticket pendiente (barra)'}</div>`;
+              footerHtml = `<div class="status-text" style="color:${order.bon_scos ? 'var(--success)' : 'var(--warning)'}; font-weight: 700;">${order.bon_scos ? '🧾 Bon scos' : '⚠️ Bon în așteptare (bar)'}</div>`;
           } else {
               footerHtml = statusText;
           }
@@ -1364,9 +1361,9 @@
       if(!isAlert && order.status !== 'anulata') {
           const sibling = getLinkedCancelledSibling(order);
           if(sibling) {
-              const sibSectionLabel = sibling.sectiune === 'bucatarie' ? 'Cocina' : 'Bar';
-              const sibTime = new Date(sibling.created_at).toLocaleTimeString('es-ES', {hour:'2-digit', minute:'2-digit'});
-              linkedHtml = `<div class="linked-cancel-badge">⚠️ La parte de ${sibSectionLabel} de esta misma comanda fue CANCELADA (${sibTime}, por ${escapeHTML(sibling.preluat_de || sibling.creat_de || sibling.utilizator || '—')})</div>`;
+              const sibSectionLabel = sibling.sectiune === 'bucatarie' ? 'Bucătărie' : 'Bar';
+              const sibTime = new Date(sibling.created_at).toLocaleTimeString('ro-RO', {hour:'2-digit', minute:'2-digit'});
+              linkedHtml = `<div class="linked-cancel-badge">⚠️ Partea de ${sibSectionLabel} a acestei comenzi a fost ANULATĂ (${sibTime}, de ${escapeHTML(sibling.preluat_de || sibling.creat_de || sibling.utilizator || '—')})</div>`;
           }
       }
 
@@ -1470,7 +1467,7 @@
               <div>
                  <div class="s-name" style="font-weight: 600; font-size: 15px;">${safeItemName}</div>
                  <div style="font-size: 12px; color: ${isOff ? 'var(--danger)' : 'var(--success)'}; font-weight: 600; margin-top: 4px;">
-                    ${isOff ? '🔴 AGOTADO' : '🟢 ACTIVO'}
+                    ${isOff ? '🔴 EPUIZAT' : '🟢 ACTIV'}
                  </div>
               </div>
               <label class="switch"><input type="checkbox" onchange="toggleStock('${item.imageNumber}', this.checked)" ${isOff ? 'checked' : ''}><span class="slider"></span></label>
@@ -1501,15 +1498,15 @@
       const filteredOrders = allOrders.filter(o => new Date(o.created_at).getTime() >= cutoff);
       
       let csvContent = '\uFEFF'; 
-      csvContent += "ID,Fecha,Hora,Mesa,Estado,Total (€),Ticket Scos,Ticket Gratis,Productos,Responsable\n";
+      csvContent += "ID,Data,Ora,Masa,Status,Total (€),Bon Scos,Gratis,Produse,Responsabil\n";
 
       filteredOrders.forEach(o => {
           const dt = new Date(o.created_at);
-          const fDate = dt.toLocaleDateString('es-ES');
-          const fTime = dt.toLocaleTimeString('es-ES');
+          const fDate = dt.toLocaleDateString('ro-RO');
+          const fTime = dt.toLocaleTimeString('ro-RO');
           
           const cleanProds = o.produse.filter(p=>p.cantitate>0).map(p=>`${p.cantitate}x ${p.nume}`).join(' + ');
-          const ticketStat = o.bon_scos ? 'Si' : 'No';
+          const ticketStat = o.bon_scos ? 'Da' : 'Nu';
           const gratisStat = o.comp_motiv ? o.comp_motiv : '-';
           const resp = o.preluat_de || o.creat_de || 'N/A';
           
@@ -1520,7 +1517,7 @@
       const link = document.createElement("a");
       const url = URL.createObjectURL(blob);
       link.setAttribute("href", url);
-      link.setAttribute("download", `Reporte_Comandos_${statsMode}_${now.toISOString().slice(0,10)}.csv`);
+      link.setAttribute("download", `Raport_Comenzi_${statsMode}_${now.toISOString().slice(0,10)}.csv`);
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -1528,14 +1525,14 @@
 
   window.exportLogsCSV = async function() {
       const { data, error } = await _supabase.from('jurnal_activitate').select('*').order('created_at', { ascending: false }).limit(2000);
-      if(error || !data) { alert('Error al descargar logs'); return; }
+      if(error || !data) { alert('Eroare la descărcarea jurnalului'); return; }
 
       let csvContent = '\uFEFF';
-      csvContent += "ID,Fecha,Hora,Usuario,Accion,Detalles\n";
+      csvContent += "ID,Data,Ora,Utilizator,Actiune,Detalii\n";
       data.forEach(l => {
           const dt = new Date(l.created_at);
-          const fDate = dt.toLocaleDateString('es-ES');
-          const fTime = dt.toLocaleTimeString('es-ES');
+          const fDate = dt.toLocaleDateString('ro-RO');
+          const fTime = dt.toLocaleTimeString('ro-RO');
           const detStr = JSON.stringify(l.detalii || {}).replace(/"/g, '""');
           csvContent += `"${l.id}","${fDate}","${fTime}","${l.utilizator}","${l.actiune}","${detStr}"\n`;
       });
@@ -1544,7 +1541,7 @@
       const link = document.createElement("a");
       const url = URL.createObjectURL(blob);
       link.setAttribute("href", url);
-      link.setAttribute("download", `Log_Actividad_${new Date().toISOString().slice(0,10)}.csv`);
+      link.setAttribute("download", `Jurnal_Activitati_${new Date().toISOString().slice(0,10)}.csv`);
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -1554,24 +1551,24 @@
   if(btnWipeHistoryEl) {
       btnWipeHistoryEl.addEventListener('click', async () => {
           if(userRole !== 'director') return;
-          const typed = prompt('Esta acción borrará PERMANENTEMENTE todo el historial de comandas (finalizadas y canceladas) de Supabase.\n\nEscribe ELIMINAR para confirmar:');
-          if(typed !== 'ELIMINAR') { if(typed !== null) alert('Cancelado. No se ha escrito "ELIMINAR" exactamente.'); return; }
+          const typed = prompt('Această acțiune va șterge DEFINITIV tot istoricul comenzilor (finalizate și anulate) din Supabase.\n\nScrie STERGE pentru a confirma:');
+          if(typed !== 'STERGE') { if(typed !== null) alert('Anulat. Nu ai scris "STERGE" exact.'); return; }
 
           btnWipeHistoryEl.disabled = true;
-          btnWipeHistoryEl.textContent = 'Eliminando...';
+          btnWipeHistoryEl.textContent = 'Se șterge...';
           const { error } = await _supabase.from('comenzi').delete().in('status', ['finalizata', 'anulata']);
           btnWipeHistoryEl.disabled = false;
-          btnWipeHistoryEl.textContent = '🗑️ Eliminar todo el historial';
+          btnWipeHistoryEl.textContent = '🗑️ Șterge tot istoricul';
 
           if(error) {
-              alert('Error al eliminar el historial: ' + error.message);
+              alert('Eroare la ștergerea istoricului: ' + error.message);
               return;
           }
           await logActivity('historial_eliminado', null, { por: currentUserEmail });
           allOrders = allOrders.filter(o => o.status !== 'finalizata' && o.status !== 'anulata');
           renderOrders();
           calculateDirectorStats();
-          alert('Historial eliminado correctamente.');
+          alert('Istoric șters cu succes.');
       });
   }
 
@@ -1598,13 +1595,13 @@
                       kitchenTotal += val; 
 
                       let dKey = statsMode === 'today' 
-                          ? new Date(order.created_at).toLocaleTimeString('es-ES', {hour:'2-digit', minute:'2-digit'})
-                          : new Date(order.created_at).toLocaleDateString('es-ES', {day:'2-digit', month:'2-digit'});
+                          ? new Date(order.created_at).toLocaleTimeString('ro-RO', {hour:'2-digit', minute:'2-digit'})
+                          : new Date(order.created_at).toLocaleDateString('ro-RO', {day:'2-digit', month:'2-digit'});
                       chartData[dKey] = (chartData[dKey] || 0) + val;
                   }
               } else {
                   pendingBonCount++; 
-                  const responsabil = order.creat_de || order.preluat_de || 'desconocido';
+                  const responsabil = order.creat_de || order.preluat_de || 'necunoscut';
                   pendingByStaff[responsabil] = (pendingByStaff[responsabil] || 0) + 1;
               }
 
@@ -1626,7 +1623,7 @@
       const chartEntries = Object.entries(chartData);
       
       if(chartEntries.length === 0) {
-          chartContainer.innerHTML = `<div style="width:100%; text-align:center; color:var(--text-muted); font-size:13px; padding-top:60px;">Sin datos de ingresos para este periodo</div>`;
+          chartContainer.innerHTML = `<div style="width:100%; text-align:center; color:var(--text-muted); font-size:13px; padding-top:60px;">Fără date de încasări în această perioadă</div>`;
       } else {
           let maxVal = Math.max(...chartEntries.map(e => e[1]), 10);
           chartEntries.forEach(([label, amount]) => {
@@ -1643,12 +1640,12 @@
 
       const listEl = document.getElementById('topProductsList'); listEl.innerHTML = '';
       const sorted = Object.entries(productCounts).sort((a, b) => b[1] - a[1]).slice(0, 5);
-      if(sorted.length === 0) listEl.innerHTML = '<li class="top-item" style="color:var(--text-muted);">Datos insuficientes</li>';
+      if(sorted.length === 0) listEl.innerHTML = '<li class="top-item" style="color:var(--text-muted);">Date insuficiente</li>';
       sorted.forEach(([n, c]) => listEl.innerHTML += `<li class="top-item"><span class="top-name">${escapeHTML(n)}</span><span class="badge-count" style="margin-left:0; background: var(--accent); color: white;">${c}</span></li>`);
 
       const pendingListEl = document.getElementById('pendingByStaffList'); pendingListEl.innerHTML = '';
       const sortedPending = Object.entries(pendingByStaff).sort((a,b) => b[1]-a[1]);
-      if(sortedPending.length === 0) pendingListEl.innerHTML = '<li class="top-item" style="color:var(--text-muted);">Sin tickets pendientes 👍</li>';
+      if(sortedPending.length === 0) pendingListEl.innerHTML = '<li class="top-item" style="color:var(--text-muted);">Niciun bon în așteptare 👍</li>';
       sortedPending.forEach(([n, c]) => pendingListEl.innerHTML += `<li class="top-item"><span class="top-name">${escapeHTML(n)}</span><span class="badge-count" style="margin-left:0; background: ${c>=3?'var(--danger)':'var(--warning)'}; color: white;">${c}</span></li>`);
 
       renderStaffReport(cutoff);
@@ -1664,7 +1661,7 @@
 
       let staffMap = {};
       relevant.forEach(o => {
-          const staff = o.creat_de || o.preluat_de || 'Cliente (menú digital)';
+          const staff = o.creat_de || o.preluat_de || 'Client (meniu digital)';
           if(!staffMap[staff]) staffMap[staff] = { pedidos: 0, ingresos: 0, cancelados: 0 };
           staffMap[staff].pedidos++;
           if(o.status === 'anulata') {
@@ -1678,7 +1675,7 @@
       const entries = Object.entries(staffMap).sort((a,b) => b[1].ingresos - a[1].ingresos);
 
       if(entries.length === 0) {
-          tbody.innerHTML = `<tr><td colspan="5" style="color:var(--text-muted); text-align:center; font-family:'Inter',sans-serif;">Sin datos para este periodo</td></tr>`;
+          tbody.innerHTML = `<tr><td colspan="5" style="color:var(--text-muted); text-align:center; font-family:'Inter',sans-serif;">Fără date în această perioadă</td></tr>`;
           return;
       }
 
@@ -1707,7 +1704,7 @@
             .eq('actiune', 'estado_cambiado')
             .order('created_at', { ascending: true })
             .limit(1000);
-          if(error || !logs) { listEl.innerHTML = '<span style="color:var(--text-muted); font-size:13.5px;">No se pudo cargar el historial.</span>'; return; }
+          if(error || !logs) { listEl.innerHTML = '<span style="color:var(--text-muted); font-size:13.5px;">Nu s-a putut încărca istoricul.</span>'; return; }
 
           let byOrder = {};
           logs.forEach(l => {
@@ -1737,26 +1734,26 @@
           suspicious.forEach(s => { byStaff[s.anulataEntry.utilizator] = (byStaff[s.anulataEntry.utilizator] || 0) + 1; });
 
           if(suspicious.length === 0) {
-              listEl.innerHTML = '<span style="color:var(--success); font-size:13.5px;">✅ Ninguna cancelación sospechosa en este periodo.</span>';
+              listEl.innerHTML = '<span style="color:var(--success); font-size:13.5px;">✅ Nicio anulare suspectă în această perioadă.</span>';
               return;
           }
 
-          let summaryHtml = `<div style="margin-bottom:12px; font-size:13px; color:var(--text-muted);">Total: <b style="color:var(--danger)">${suspicious.length}</b> caso(s)` +
+          let summaryHtml = `<div style="margin-bottom:12px; font-size:13px; color:var(--text-muted);">Total: <b style="color:var(--danger)">${suspicious.length}</b> caz(uri)` +
               (Object.keys(byStaff).length ? ' · ' + Object.entries(byStaff).sort((a,b)=>b[1]-a[1]).map(([u,c]) => `${escapeHTML(u)} (${c})`).join(', ') : '') +
               `</div>`;
 
           listEl.innerHTML = summaryHtml + suspicious.slice(0, 30).map(s => {
-              const t = new Date(s.anulataEntry.created_at).toLocaleString('es-ES', {day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit'});
-              const tGata = new Date(s.gataEntry.created_at).toLocaleTimeString('es-ES', {hour:'2-digit', minute:'2-digit'});
+              const t = new Date(s.anulataEntry.created_at).toLocaleString('ro-RO', {day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit'});
+              const tGata = new Date(s.gataEntry.created_at).toLocaleTimeString('ro-RO', {hour:'2-digit', minute:'2-digit'});
               return `
                 <div class="fraud-item">
-                  <div class="fi-top"><span>Mesa ${escapeHTML(s.mesa)} · Comanda #${escapeHTML(s.comandaId)}</span><span>${t}</span></div>
-                  <div class="fi-meta">Marcado "Listo" a las ${tGata} por ${escapeHTML(s.gataEntry.utilizator)} → Cancelado a las ${t.split(' ').pop()} por <b>${escapeHTML(s.anulataEntry.utilizator)}</b> ${s.sectiune ? '· ' + escapeHTML(s.sectiune) : ''}</div>
+                  <div class="fi-top"><span>Masa ${escapeHTML(s.mesa)} · Comanda #${escapeHTML(s.comandaId)}</span><span>${t}</span></div>
+                  <div class="fi-meta">Marcat "Gata" la ${tGata} de ${escapeHTML(s.gataEntry.utilizator)} → Anulat la ${t.split(' ').pop()} de <b>${escapeHTML(s.anulataEntry.utilizator)}</b> ${s.sectiune ? '· ' + escapeHTML(s.sectiune) : ''}</div>
                 </div>
               `;
           }).join('');
       } catch(e) {
-          listEl.innerHTML = '<span style="color:var(--text-muted); font-size:13.5px;">Error analizando el historial.</span>';
+          listEl.innerHTML = '<span style="color:var(--text-muted); font-size:13.5px;">Eroare la analizarea istoricului.</span>';
       }
   }
 
@@ -1764,12 +1761,12 @@
       const container = document.getElementById('heatmapContainer');
       const scaleEl = document.getElementById('heatmapScale');
       const bestEl = document.getElementById('heatmapBest');
-      container.innerHTML = 'Cargando...';
+      container.innerHTML = 'Se încarcă...';
 
       try {
           const since = new Date(Date.now() - 60 * 24 * 60 * 60 * 1000).toISOString();
           const { data, error } = await _supabase.from('comenzi').select('created_at, produse').gte('created_at', since).limit(5000);
-          if(error || !data) { container.innerHTML = '<span style="color:var(--text-muted); font-size:13px;">No se pudo cargar el heatmap.</span>'; return; }
+          if(error || !data) { container.innerHTML = '<span style="color:var(--text-muted); font-size:13px;">Nu s-a putut încărca heatmap-ul.</span>'; return; }
 
           const relevant = data.filter(o => !(o.produse || []).some(p => p.nume && p.nume.includes('ALERTĂ')));
 
@@ -1779,7 +1776,7 @@
               matrix[d.getDay()][d.getHours()]++;
           });
 
-          const dayNames = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
+          const dayNames = ['Dum','Lun','Mar','Mie','Joi','Vin','Sâm'];
           let maxVal = 0;
           matrix.forEach(row => row.forEach(v => { if(v > maxVal) maxVal = v; }));
 
@@ -1800,7 +1797,7 @@
               html += `<tr><td class="heatmap-hourlabel">${String(h).padStart(2,'0')}:00</td>`;
               for(let day = 0; day < 7; day++) {
                   const v = matrix[day][h];
-                  html += `<td><div class="heatmap-cell" style="background:${colorFor(v)};" title="${dayNames[day]} ${String(h).padStart(2,'0')}:00 — ${v} pedido(s)"></div></td>`;
+                  html += `<td><div class="heatmap-cell" style="background:${colorFor(v)};" title="${dayNames[day]} ${String(h).padStart(2,'0')}:00 — ${v} comandă(zi)"></div></td>`;
               }
               html += '</tr>';
           });
@@ -1819,13 +1816,13 @@
           const top3 = flat.slice(0,3);
 
           if(top3.length === 0) {
-              bestEl.innerHTML = 'Aún no hay suficientes pedidos históricos para calcular las horas punta.';
+              bestEl.innerHTML = 'Încă nu sunt suficiente comenzi istorice pentru a calcula orele de vârf.';
           } else {
-              bestEl.innerHTML = '📌 Momentos de más movimiento (recomendado reforzar personal): ' +
-                  top3.map(x => `<b>${dayNames[x.day]} ${String(x.h).padStart(2,'0')}:00h</b> (${x.v} pedidos)`).join(' · ');
+              bestEl.innerHTML = '📌 Momentele cele mai aglomerate (recomandăm suplimentarea personalului): ' +
+                  top3.map(x => `<b>${dayNames[x.day]} ${String(x.h).padStart(2,'0')}:00h</b> (${x.v} comenzi)`).join(' · ');
           }
       } catch(e) {
-          container.innerHTML = '<span style="color:var(--text-muted); font-size:13px;">Error calculando el heatmap.</span>';
+          container.innerHTML = '<span style="color:var(--text-muted); font-size:13px;">Eroare la calcularea heatmap-ului.</span>';
       }
   }
 
@@ -1841,7 +1838,7 @@
       if(term) visibleItems = visibleItems.filter(item => item.name.toLowerCase().includes(term));
 
       if(visibleItems.length === 0) {
-          container.innerHTML = `<div style="text-align:center; color:var(--text-muted); padding:30px 10px;">Ningún producto coincide con "${escapeHTML(meniuSearchTerm)}"</div>`;
+          container.innerHTML = `<div style="text-align:center; color:var(--text-muted); padding:30px 10px;">Niciun produs găsit pentru "${escapeHTML(meniuSearchTerm)}"</div>`;
           updateMeniuTotal();
           return;
       }
@@ -1891,17 +1888,17 @@
       const mesa = document.getElementById('meniuTableInput').value.trim();
       const notaText = document.getElementById('meniuNoteInput').value.trim();
       
-      if(!mesa) { alert('Introduce el número de mesa.'); return; }
+      if(!mesa) { alert('Introdu numărul mesei.'); return; }
 
       const allValidTables = new Set();
       salaConfig.zones.forEach(z => z.mese.forEach(m => allValidTables.add(String(m.numar))));
       if(allValidTables.size > 0 && !allValidTables.has(mesa)) {
-          alert(`La mesa "${mesa}" no existe en el plano de la sala. Revisa el número.`);
+          alert(`Masa "${mesa}" nu există pe harta sălii. Verifică numărul.`);
           return;
       }
 
       const items = Object.entries(meniuCart).map(([id, q]) => ({ item: fullMenu.find(i => i.imageNumber == id), q })).filter(x => x.item);
-      if(items.length === 0) { alert('Añade al menos un producto.'); return; }
+      if(items.length === 0) { alert('Adaugă cel puțin un produs.'); return; }
 
       const grupId = (crypto.randomUUID ? crypto.randomUUID() : (Date.now()+'-'+Math.random()));
       const barItems = items.filter(x => (x.item.sectiune || 'bar') === 'bar');
@@ -1930,7 +1927,7 @@
       }
 
       const { data, error } = await _supabase.from('comenzi').insert(payloads).select();
-      if(error) { alert('Error: ' + error.message); return; }
+      if(error) { alert('Eroare: ' + error.message); return; }
       logActivity('pedido_creado_camarero', data && data[0] ? data[0].id : null, { mesa, productos: payloads.flatMap(p=>p.produse) });
       
       meniuCart = {};
@@ -1939,46 +1936,46 @@
       document.getElementById('meniuTableInput').value = '';
       document.getElementById('meniuNoteInput').value = '';
       loadMeniuForOspatar();
-      alert('¡Pedido enviado a la mesa ' + mesa + '!');
+      alert('Comandă trimisă către masa ' + mesa + '!');
   });
 
   async function loadJurnal() {
       const { data, error } = await _supabase.from('jurnal_activitate').select('*').order('created_at', { ascending: false }).limit(200);
       const listEl = document.getElementById('jurnalList');
       if(error) { 
-          listEl.innerHTML = `<tr><td colspan="4" style="color:var(--danger); text-align:center;">Error cargando el log.</td></tr>`; 
+          listEl.innerHTML = `<tr><td colspan="4" style="color:var(--danger); text-align:center;">Eroare la încărcarea jurnalului.</td></tr>`; 
           return; 
       }
       if(!data || data.length === 0) { 
-          listEl.innerHTML = `<tr><td colspan="4" style="color:var(--text-muted); text-align:center;">Sin eventos aún.</td></tr>`; 
+          listEl.innerHTML = `<tr><td colspan="4" style="color:var(--text-muted); text-align:center;">Niciun eveniment momentan.</td></tr>`; 
           return; 
       }
       
       const actionLabels = { 
-          pedido_cancelado: '<span style="color:var(--danger)">❌ Cancelado</span>', 
-          estado_cambiado: '<span style="color:var(--success)">🔄 Estado</span>', 
-          ticket_confirmado: '<span style="color:var(--text)">🧾 Confirmado</span>', 
+          pedido_cancelado: '<span style="color:var(--danger)">❌ Anulat</span>', 
+          estado_cambiado: '<span style="color:var(--success)">🔄 Status</span>', 
+          ticket_confirmado: '<span style="color:var(--text)">🧾 Confirmat</span>', 
           pedido_gratis: '<span style="color:var(--warning)">🎁 Gratis</span>', 
-          pedido_creado_camarero: '<span style="color:var(--blue)">📋 Nuevo Menu</span>',
-          config_mese: '<span style="color:var(--warning)">🗺️ Edit Sala</span>',
-          mesa_liberada: '<span style="color:var(--success)">🔓 Mesa Liberada</span>',
-          setari_busy: '<span style="color:var(--warning)">🔥 Modo Punta</span>',
+          pedido_creado_camarero: '<span style="color:var(--blue)">📋 Meniu Nou</span>',
+          config_mese: '<span style="color:var(--warning)">🗺️ Editare Sală</span>',
+          mesa_liberada: '<span style="color:var(--success)">🔓 Masă Eliberată</span>',
+          setari_busy: '<span style="color:var(--warning)">🔥 Mod Vârf</span>',
           feedback_client: '<span style="color:var(--success)">💬 Feedback</span>',
-          historial_eliminado: '<span style="color:var(--danger)">🗑️ Historial Eliminado</span>',
-          limpieza_medianoche: '<span style="color:var(--purple)">🌙 Cierre Automático</span>'
+          historial_eliminado: '<span style="color:var(--danger)">🗑️ Istoric Șters</span>',
+          limpieza_medianoche: '<span style="color:var(--purple)">🌙 Curățare Auto</span>'
       };
       
       listEl.innerHTML = data.map(log => {
-          const t = new Date(log.created_at).toLocaleString('es-ES', {day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit'});
+          const t = new Date(log.created_at).toLocaleString('ro-RO', {day:'2-digit', month:'2-digit', hour:'2-digit', minute:'2-digit'});
           const label = actionLabels[log.actiune] || escapeHTML(log.actiune);
           
           let detText = "";
           if (log.detalii) {
-              if (log.detalii.mesa) detText += `Mesa ${escapeHTML(log.detalii.mesa)} `;
+              if (log.detalii.mesa) detText += `Masa ${escapeHTML(log.detalii.mesa)} `;
               if (log.detalii.motivo) detText += `(${escapeHTML(log.detalii.motivo)}) `;
-              if (log.actiune === 'feedback_client') detText += `(${escapeHTML(log.detalii.rating)} Estrellas)`;
-              if (log.actiune === 'setari_busy') detText += log.detalii.isBusy ? '(Activado)' : '(Desactivado)';
-              if (log.actiune === 'mesa_liberada') detText += log.detalii.automat ? '(Automático)' : '(Manual)';
+              if (log.actiune === 'feedback_client') detText += `(${escapeHTML(log.detalii.rating)} Stele)`;
+              if (log.actiune === 'setari_busy') detText += log.detalii.isBusy ? '(Activat)' : '(Dezactivat)';
+              if (log.actiune === 'mesa_liberada') detText += log.detalii.automat ? '(Automat)' : '(Manual)';
               if (log.actiune === 'estado_cambiado' && log.detalii.status) detText += `→ ${escapeHTML(log.detalii.status)} `;
           }
 
@@ -2032,8 +2029,8 @@
           if (userRole === 'ospatar' && p.new.status === 'gata' && prevStatus !== 'gata') {
               if (navigator.vibrate) navigator.vibrate([400, 200, 400, 200, 800]);
               const validItems = (p.new.produse || []).filter(x => x.cantitate > 0);
-              const title = '🍽️ Pedido Listo';
-              const body = `Mesa ${p.new.mesa}: ` + validItems.map(x => x.nume).join(', ');
+              const title = '🍽️ Comandă Gata';
+              const body = `Masa ${p.new.mesa}: ` + validItems.map(x => x.nume).join(', ');
               showBackgroundAlert(title, body);
           }
 
